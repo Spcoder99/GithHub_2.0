@@ -31,8 +31,9 @@ import { useAuth } from "./context/authContext";
 import CodespacesPage from "./components/code/CodespacePage";
 import SponsorsPage from "./components/sponsers/SponsersPage";
 import ProfileSettings from "./components/settings/ProfileSettings";
-import MCPServers from "./components/mcpserver/McpServers";
+
 import AppearancePage from "./components/appearances/AppearancePage";
+import McpServers from "./components/mcpserver/McpServers";
 
 const ProjectRoutes = () => {
   const { currentUser, setCurrentUser } = useAuth();
@@ -91,7 +92,7 @@ const ProjectRoutes = () => {
     {path: "/codespaces", element: <CodespacesPage />},
     {path: "/sponsors", element: <SponsorsPage />},
     {path: "/settings", element: <ProfileSettings />},
-    {path: "/mcpservers", element: <MCPServers />},
+    {path: "/mcpservers", element: <McpServers />},
     {path: "/appearance", element: <AppearancePage />}
 
   ])

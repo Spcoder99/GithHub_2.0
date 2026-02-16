@@ -21,7 +21,7 @@ const servers = [
   { name: "Firecrawl", desc: "Extract web data with Firecrawl", author: "firecrawl", stars: "5,502" }
 ];
 
-const MCPServers = () => {
+const McpServers = () => {
   return (
     <div className="mcp-wrapper">
 
@@ -90,4 +90,4 @@ const MCPServers = () => {
   );
 };
 
-export default MCPServers;
+export default McpServers;
