@@ -36,7 +36,7 @@ export default function RepoFilesPage() {
   useEffect(() => {
     const fetchRepo = async () => {
       try {
-        const res = await axios.get(`http://localhost:8000/repo/${repoId}`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/repo/${repoId}`);
         setRepo(Array.isArray(res?.data?.repository) ? res?.data?.repository : []);
       } catch (err) {
         toast.error(err?.response?.data?.error || "Failed to fetch repo");
@@ -51,7 +51,7 @@ export default function RepoFilesPage() {
     const fetchFiles = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(`http://localhost:8000/repo/${repoId}/files`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/repo/${repoId}/files`);
 
         setFiles(res?.data);
 

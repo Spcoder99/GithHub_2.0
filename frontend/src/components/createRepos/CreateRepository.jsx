@@ -38,7 +38,7 @@ export default function CreateRepository() {
         }
 
         const res = await axios.get(
-          `http://localhost:8000/userProfile/${userId}`,
+          `${import.meta.env.VITE_API_URL}/userProfile/${userId}`,
         );
         setUser(res?.data?.user);
       } catch (err) {
@@ -76,7 +76,7 @@ export default function CreateRepository() {
         return;
       }
 
-      const res = await axios.post("http://localhost:8000/repo/create", {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/repo/create`, {
         owner,
         name: repoName,
         description,

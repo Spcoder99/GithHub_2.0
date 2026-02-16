@@ -41,7 +41,7 @@ const IssuesPage = () => {
           return;
         }
 
-        const res = await axios.get("http://localhost:8000/issues/me", {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/issues/me`, {
           headers: {
             userId: currentUser,
           },

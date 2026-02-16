@@ -23,7 +23,7 @@ const AppearancePage = () => {
     const fetchUser = async () => {
       try {
         setLoading(true);
-        const res = await fetch(`http://localhost:8000/userProfile/${userId}`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/userProfile/${userId}`);
         const data = await res.json();
         setUser(data);
       } catch (error) {

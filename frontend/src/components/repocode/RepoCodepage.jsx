@@ -43,7 +43,7 @@ const RepoCodePage = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/repo/${id}`)
+      .get(`${import.meta.env.VITE_API_URL}/repo/${id}`)
       .then((res) => setRepo(Array.isArray(res?.data?.repository) ? res?.data?.repository : []))
       .catch((err) => console.log(err));
   }, [id]);
@@ -52,7 +52,7 @@ const RepoCodePage = () => {
     const fetchUser = async () => {
       try {
         setLoading(true);
-        const res = await fetch(`http://localhost:8000/userProfile/${userId}`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/userProfile/${userId}`);
         const data = await res.json();
         setUser(data);
       } catch (error) {

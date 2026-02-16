@@ -31,7 +31,7 @@ const IssueOpen = () => {
 
     try {
       const res = await axios.post(
-        `http://localhost:8000/issue/comment/${issueId}`,
+        `${import.meta.env.VITE_API_URL}/issue/comment/${issueId}`,
         { text: comment },
         { headers: { userid: userId } }
       );
@@ -50,7 +50,7 @@ const IssueOpen = () => {
     const fetchIssue = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(`http://localhost:8000/issue/${issueId}`, {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/issue/${issueId}`, {
           headers: { userid: userId },
         });
 
@@ -72,7 +72,7 @@ const IssueOpen = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await axios.get(`http://localhost:8000/userProfile/${userId}`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/userProfile/${userId}`);
         setUser(res?.data?.user);
       } catch (err) {
         toast.error(err?.response?.data?.error || "Failed to fetch user");
@@ -86,7 +86,7 @@ const IssueOpen = () => {
   const handleCloseIssue = async () => {
     try {
       const res = await axios.put(
-        `http://localhost:8000/issue/close/${issueId}`,
+        `${import.meta.env.VITE_API_URL}/issue/close/${issueId}`,
         {},
         { headers: { userid: userId } }
       );
@@ -156,7 +156,7 @@ const IssueOpen = () => {
     if (!ok) return;
 
     try {
-      const res = await axios.delete(`http://localhost:8000/issue/delete/${issueId}`, {
+      const res = await axios.delete(`${import.meta.env.VITE_API_URL}/issue/delete/${issueId}`, {
         headers: { userid: userId },
       });
 
@@ -303,7 +303,7 @@ const IssueOpen = () => {
                 if (!editText.trim()) return;
                 try {
                   const res = await axios.put(
-                    `http://localhost:8000/issue/${issueId}/comment/${c?._id}`,
+                    `${import.meta.env.VITE_API_URL}/issue/${issueId}/comment/${c?._id}`,
                     { text: editText },
                     { headers: { userid: userId } }
                   );
@@ -324,7 +324,7 @@ const IssueOpen = () => {
 
                 try {
                   const res = await axios.delete(
-                    `http://localhost:8000/issue/${issueId}/comment/${c?._id}`,
+                    `${import.meta.env.VITE_API_URL}/issue/${issueId}/comment/${c?._id}`,
                     { headers: { userid: userId } }
                   );
                   setIssue(res?.data?.issue);

@@ -26,6 +26,7 @@ const Dashboard = () => {
     setSelectedRepoId(repoId);
     setShowDeleteModal(true);
   };
+  
 
   const confirmDelete = async () => {
     try {
@@ -33,7 +34,7 @@ const Dashboard = () => {
       const userId = localStorage.getItem("userId");
 
       const res = await fetch(
-        `http://localhost:8000/repo/delete/${selectedRepoId}`,
+        `${import.meta.env.VITE_API_URL}/repo/delete/${selectedRepoId}`,
         {
           method: "DELETE",
           headers: { "Content-Type": "application/json" },
@@ -71,7 +72,7 @@ const Dashboard = () => {
 
     const fetchStarredRepos = async () => {
       try {
-        const res = await fetch(`http://localhost:8000/userProfile/${userId}`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/userProfile/${userId}`);
         const data = await res.json();
         const starredIds =
           data?.user?.starRepos?.map((id) => id?.toString()) || [];
@@ -92,7 +93,7 @@ const Dashboard = () => {
       try {
         setLoading(true);
         const response = await fetch(
-          `http://localhost:8000/repo/user/${userId}`,
+          `${import.meta.env.VITE_API_URL}/repo/user/${userId}`,
         );
 
         const data = await response.json();
@@ -109,7 +110,7 @@ const Dashboard = () => {
     const fetchSuggestedRepositories = async () => {
       try {
         
-        const response = await fetch("http://localhost:8000/repo/all");
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/repo/all`);
         const data = await response.json();
         setSuggestedRepositories(Array.isArray(data?.repositories) ? data?.repositories : []);
       } catch (error) {
@@ -162,7 +163,7 @@ const Dashboard = () => {
     try {
       const userId = localStorage.getItem("userId");
 
-      const res = await fetch("http://localhost:8000/toggleStar", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/toggleStar`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId, repoId }),
@@ -243,7 +244,7 @@ const Dashboard = () => {
 
   const handleToggleVisibility = async (repoId) => {
     try {
-      const res = await fetch(`http://localhost:8000/repo/toggle/${repoId}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/repo/toggle/${repoId}`, {
         method: "PATCH",
       });
 

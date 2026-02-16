@@ -43,7 +43,7 @@ export default function GithubFileView() {
     const fetchRepo = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(`http://localhost:8000/repo/${repoId}`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/repo/${repoId}`);
         // console.log(res.data);
         setRepo(Array.isArray(res?.data?.repository) ? res?.data?.repository : []);
       } catch (err) {
@@ -77,8 +77,9 @@ export default function GithubFileView() {
     const fetchFileContent = async () => {
       try {
         setLoading(true);
+        console.log(import.meta.env.VITE_API_URL);
         const res = await axios.get(
-          `http://localhost:8000/repo/${repoId}/file/content?key=${encodeURIComponent(fileKey)}`,
+          `${import.meta.env.VITE_API_URL}/repo/${repoId}/file/content?key=${encodeURIComponent(fileKey)}`,
         );
         setContent(res?.data?.content);
         setFileName(res?.data?.fileName);
@@ -102,7 +103,7 @@ export default function GithubFileView() {
 
     try {
       const res = await axios.delete(
-        `http://localhost:8000/repo/${repoId}/file/delete`,
+        `${import.meta.env.VITE_API_URL}/repo/${repoId}/file/delete`,
         { data: { key: fileKey } }, // DELETE body
       );
       toast.success( res?.data?.message||"File deleted successfully!");

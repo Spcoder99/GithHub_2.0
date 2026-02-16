@@ -35,7 +35,7 @@ export default function AddFile() {
       const formData = new FormData();
       const file = new File([content], fileName); // fileName can be "folder1/folder2/myfile.txt" if you want folders
       formData.append("file", file);
-      const res = await fetch(`http://localhost:8000/repo/${repoId}/upload`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/repo/${repoId}/upload`, {
         method: "POST",
         body: formData,
       });
@@ -60,7 +60,7 @@ export default function AddFile() {
     const fetchRepo = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(`http://localhost:8000/repo/${repoId}`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/repo/${repoId}`);
         // console.log(res.data);
         setRepo(Array.isArray(res?.data?.repository) ? res?.data?.repository : []);
       } catch (err) {

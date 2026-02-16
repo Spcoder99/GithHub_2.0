@@ -36,7 +36,7 @@ const RepoIssue = () => {
       try {
         setLoading(true);
         const res = await axios.get(
-          `http://localhost:8000/issues/repo/${repoId}`,
+          `${import.meta.env.VITE_API_URL}/issues/repo/${repoId}`,
         );
         setRepoIssues(res?.data);
       } catch (err) {

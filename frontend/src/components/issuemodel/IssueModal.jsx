@@ -19,7 +19,7 @@ export default function IssueModal({ onClose }) {
         const userId = localStorage.getItem("userId");
 
         const res = await axios.get(
-          `http://localhost:8000/repo/user/${userId}`,
+          `${import.meta.env.VITE_API_URL}/repo/user/${userId}`,
         );
 
         setRepos(Array.isArray(res?.data?.repositories) ? res?.data?.repositories : []);

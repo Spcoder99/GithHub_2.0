@@ -33,13 +33,13 @@ export default function EditFile() {
       try {
         // Fetch repo info (optional)
         setLoading(true);
-        const repoRes = await axios.get(`http://localhost:8000/repo/${repoId}`);
+        const repoRes = await axios.get(`${import.meta.env.VITE_API_URL}/repo/${repoId}`);
       
         setRepo(Array.isArray(repoRes?.data?.repository) ? repoRes?.data?.repository : []);
 
       
         const fileRes = await axios.get(
-          `http://localhost:8000/repo/${repoId}/file/content?key=${encodeURIComponent(fileKey)}`,
+          `${import.meta.env.VITE_API_URL}/repo/${repoId}/file/content?key=${encodeURIComponent(fileKey)}`,
         );
 
         setFileName(fileKey?.split("/").pop()); // set filename automatically
@@ -80,7 +80,7 @@ export default function EditFile() {
       formData.append("newFileName", fileName); // rename if changed
 
       const res = await axios.post(
-        `http://localhost:8000/repo/${repoId}/update`,
+        `${import.meta.env.VITE_API_URL}/repo/${repoId}/update`,
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
@@ -102,7 +102,7 @@ export default function EditFile() {
     const fetchRepo = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(`http://localhost:8000/repo/${repoId}`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/repo/${repoId}`);
         // console.log(res.data);
         // setRepo(res.data || []);
         // console.log(res.data);

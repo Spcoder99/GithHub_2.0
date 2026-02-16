@@ -23,7 +23,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await axios.post("http://localhost:8000/signUp", {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/signUp`, {
         email: email,
         username: username,
         password: password,

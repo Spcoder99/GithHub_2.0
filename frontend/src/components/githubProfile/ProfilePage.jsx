@@ -58,7 +58,7 @@ const ProfilePage = () => {
       const userId = localStorage.getItem("userId");
 
       const res = await fetch(
-        `http://localhost:8000/repo/delete/${selectedRepoId}`,
+        `${import.meta.env.VITE_API_URL}/repo/delete/${selectedRepoId}`,
         {
           method: "DELETE",
           headers: { "Content-Type": "application/json" },
@@ -99,7 +99,7 @@ const ProfilePage = () => {
 
   const fetchProfile = async () => {
     try {
-      const res = await fetch(`http://localhost:8000/userProfile/${profileId}`);
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/userProfile/${profileId}`);
       const data = await res.json();
       setUser(data);
     } catch (err) {
@@ -112,7 +112,7 @@ const ProfilePage = () => {
     const fetchStarredRepos = async () => {
       try {
         const userId = localStorage.getItem("userId");
-        const res = await fetch(`http://localhost:8000/userProfile/${userId}`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/userProfile/${userId}`);
         const data = await res.json();
         const starredIds =
           data?.user?.starRepos?.map((id) => id?.toString()) || [];
@@ -129,7 +129,7 @@ const ProfilePage = () => {
     try {
       const userId = localStorage.getItem("userId");
 
-      const res = await fetch("http://localhost:8000/toggleStar", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/toggleStar`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId, repoId }),
@@ -163,7 +163,7 @@ const ProfilePage = () => {
 
   const handleFollow = async () => {
     try {
-      const res = await fetch("http://localhost:8000/follow", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/follow`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -185,7 +185,7 @@ const ProfilePage = () => {
     if (!profileId) return;
 
     setUser(null);
-    fetch(`http://localhost:8000/userProfile/${profileId}`)
+    fetch(`${import.meta.env.VITE_API_URL}/userProfile/${profileId}`)
       .then((res) => res.json())
       .then((data) => {
         setUser(data);
@@ -203,7 +203,7 @@ const ProfilePage = () => {
         const idToUse = profileId ? profileId : userId;
 
         const response = await fetch(
-          `http://localhost:8000/repo/user/${idToUse}`,
+          `${import.meta.env.VITE_API_URL}/repo/user/${idToUse}`,
         );
 
         const data = await response.json();
@@ -281,7 +281,7 @@ const ProfilePage = () => {
 
   const handleUnfollow = async () => {
     try {
-      const res = await fetch("http://localhost:8000/unfollow", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/unfollow`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -319,7 +319,7 @@ const ProfilePage = () => {
       setLoading(true);
 
       const res = await fetch(
-        `http://localhost:8000/repo/toggle/${repoId}`,
+        `${import.meta.env.VITE_API_URL}/repo/toggle/${repoId}`,
         { method: "PATCH" }
       );
 

@@ -16,7 +16,7 @@ const navigate = useNavigate();
     const fetchRepo = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(`http://localhost:8000/repo/${repoId}`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/repo/${repoId}`);
         const repoData = Array.isArray(res?.data?.repository) ? res?.data?.repository[0] : res?.data?.repository;
         setRepo({ name: repoData?.name, description: repoData?.description || "" });
       } catch (err) {
@@ -43,7 +43,7 @@ const navigate = useNavigate();
     }
     try {
       const res = await axios.put(
-        `http://localhost:8000/repo/update/${repoId}`,
+        `${import.meta.env.VITE_API_URL}/repo/update/${repoId}`,
         {
           name: repo?.name,
           description: repo?.description,

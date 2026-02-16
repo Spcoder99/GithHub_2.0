@@ -52,7 +52,7 @@ export default function CreateIssuePage() {
       }
 
       const res = await axios.post(
-        `http://localhost:8000/issue/create/${repo?._id}`,
+        `${import.meta.env.VITE_API_URL}/issue/create/${repo?._id}`,
         { title, description },
         {
           headers: {

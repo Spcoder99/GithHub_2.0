@@ -17,7 +17,7 @@ export default function DeleteAccount() {
   const handleDelete = async () => {
     try {
       setLoading(true);
-      await axios.delete(`http://localhost:8000/deleteProfile/${userId}`, {
+      await axios.delete(`${import.meta.env.VITE_API_URL}/deleteProfile/${userId}`, {
         data: { password },
       });
 
