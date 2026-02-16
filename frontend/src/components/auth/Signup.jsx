@@ -1,7 +1,7 @@
 import { Box } from "@primer/react";
 import { PageHeader } from "@primer/react/drafts";
 import { Loader2Icon } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./auth.css";
 
 import axios from "axios";
@@ -18,6 +18,8 @@ const Signup = () => {
   const [loading, setLoading] = useState(false);
 
   const { setCurrentUser } = useAuth();
+
+  const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -38,8 +40,9 @@ const Signup = () => {
       toast.success(res?.data?.message || "Signup successful!");
 
       setTimeout(() => {
-        window.location.href = "/";
-      }, 1200);
+        // window.location.href = "/";
+        navigate("/");
+      }, 1000);
     } catch (error) {
       console.error("Signup error:", error?.response?.data || error?.message);
       toast.error(
