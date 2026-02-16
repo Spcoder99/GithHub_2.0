@@ -221,14 +221,14 @@ const toggleStarRepo = async (req, res) => {
         { _id: new ObjectId(userId) },
         { $pull: { starRepos: new ObjectId(repoId) } }
       );
-      message = "Repository unstarred";
+      message = "Repository unstarred successfully";
     } else {
       // Add star
       await usersCollection.updateOne(
         { _id: new ObjectId(userId) },
         { $push: { starRepos: new ObjectId(repoId) } }
       );
-      message = "Repository starred";
+      message = "Repository starred successfully";
     }
 
     // Fetch updated user to return the new count
@@ -362,7 +362,7 @@ const followUser = async (req, res) => {
       { $push: { followers: new ObjectId(myId) } }
     );
 
-    res.status(200).json({ message: "Followed successfully" });
+    res.status(200).json({ message: "Followed user successfully" });
   } catch (error) {
     console.error("Follow error:", error);
     res.status(500).json({ message: error.message });
@@ -388,7 +388,7 @@ const unfollowUser = async (req, res) => {
       { $pull: { followers: new ObjectId(myId) } }
     );
 
-    res.status(200).json({ message: "Unfollowed successfully" });
+    res.status(200).json({ message: "Unfollowed user successfully" });
   } catch (error) {
     console.error("Unfollow error:", error);
     res.status(500).json({ message: error.message });
