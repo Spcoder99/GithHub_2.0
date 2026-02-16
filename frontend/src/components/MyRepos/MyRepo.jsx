@@ -49,7 +49,7 @@ const MyRepo = () => {
       const userId = localStorage.getItem("userId");
 
       const res = await fetch(
-        `http://localhost:8000/repo/delete/${selectedRepoId}`,
+        `${import.meta.env.VITE_API_URL}/repo/delete/${selectedRepoId}`,
         {
           method: "DELETE",
           headers: { "Content-Type": "application/json" },
@@ -93,7 +93,7 @@ const MyRepo = () => {
     if (!profileId) return;
 
     setUser(null);
-    fetch(`http://localhost:8000/userProfile/${profileId}`)
+    fetch(`${import.meta.env.VITE_API_URL}/userProfile/${profileId}`)
       .then((res) => res.json())
       .then((data) => {
         setUser(data);
@@ -111,7 +111,7 @@ const MyRepo = () => {
         const idToUse = profileId ? profileId : userId;
 
         const response = await fetch(
-          `http://localhost:8000/repo/user/${idToUse}`,
+          `${import.meta.env.VITE_API_URL}/repo/user/${idToUse}`,
         );
 
         const data = await response?.json();
@@ -146,7 +146,7 @@ const MyRepo = () => {
       setLoading(true);
 
       const res = await fetch(
-        `http://localhost:8000/repo/toggle/${repoId}`,
+        `${import.meta.env.VITE_API_URL}/repo/toggle/${repoId}`,
         { method: "PATCH" }
       );
 
@@ -209,7 +209,7 @@ const MyRepo = () => {
     const fetchStarredRepos = async () => {
       try {
         const userId = localStorage.getItem("userId");
-        const res = await fetch(`http://localhost:8000/userProfile/${userId}`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/userProfile/${userId}`);
         const data = await res.json();
         const starredIds =
           data?.user?.starRepos?.map((id) => id?.toString()) || [];
@@ -226,7 +226,7 @@ const MyRepo = () => {
     try {
       const userId = localStorage.getItem("userId");
 
-      const res = await fetch("http://localhost:8000/toggleStar", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/toggleStar`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId, repoId }),
