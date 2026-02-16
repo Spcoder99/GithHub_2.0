@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif !important;
+  margin: 0;
+  padding: 0;
+}
+
+/* html, body, #root {
+  height: 100%;
+} */
+/* 
+#root {
+  display: flex;
+  flex-direction: column;
+} */
+
+html, body, #root {
+  /* height: 100%; */
+  margin: 0;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  
+}

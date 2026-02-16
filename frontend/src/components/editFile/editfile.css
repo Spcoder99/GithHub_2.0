@@ -1,0 +1,202 @@
+
+
+/* TOP TABS */
+.top-tabsMCKL {
+  display: flex;
+  gap: 24px;
+  padding: 14px 24px;
+  padding-bottom: 0;
+  border-bottom: 1px solid #d0d7de;
+}
+
+.tabMCKL {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #57606a;
+  cursor: pointer;
+  padding-bottom: 10px;
+}
+
+.tabMCKL.activeMCKL {
+  color: #24292f;
+  border-bottom: 2px solid #fd8c73;
+  font-weight: 600;
+}
+
+/* PAGE */
+.gh-containerMCKL {
+  padding: 24px;
+}
+
+.gh-pageMCKL {
+    margin-top: 74px;
+}
+
+/* BREADCRUMB */
+.breadcrumbMCKL {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.repoMCKL {
+  font-weight: 600;
+}
+
+.breadcrumbMCKL input {
+  padding: 6px 8px;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  width: 220px;
+}
+
+.branchMCKL {
+  background: #ddf4ff;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.breadcrumb-actionsMCKL {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+
+/* BUTTONS */
+.btnMCKL {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btnMCKL.secondaryMCKL {
+  background: #f6f8fa;
+  border: 1px solid #d0d7de;
+}
+
+.btnMCKL.primaryMCKL {
+  background: #2da44e;
+  color: white;
+  border: none;
+}
+
+/* EDITOR TOOLBAR */
+.editor-toolbarMCKL {
+  display: flex;
+  justify-content: space-between;
+  background: #f6f8fa;
+  border: 1px solid #d0d7de;
+  border-bottom: none;
+  padding: 8px 12px;
+  border-radius: 6px 6px 0 0;
+}
+
+.tab-btnMCKL {
+  background: none;
+  border: none;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.tab-btnMCKL.activeMCKL {
+  background: white;
+  border: 1px solid #d0d7de;
+  font-weight: 600;
+}
+
+.editor-toolbarMCKL select {
+  margin-left: 8px;
+}
+
+/* EDITOR */
+.editor-boxMCKL {
+  border: 1px solid #d0d7de;
+  border-radius: 0 0 6px 6px;
+}
+
+.editor-boxMCKL textarea {
+  width: 100%;
+  height: 420px;
+  border: none;
+  padding: 12px;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 14px;
+  resize: none;
+  outline: none;
+}
+
+/* FOOTER */
+.editor-footerMCKL {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #57606a;
+}
+
+kbd {
+  background: #f6f8fa;
+  border: 1px solid #d0d7de;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+
+
+@media screen and (max-width: 400px) {
+  .VRINDAWAN {
+    display: none;
+    visibility: hidden;
+  }
+
+   .top-tabsMCKL {
+    margin-top: 74px;
+  }
+
+ 
+  .breadcrumbMCKL {
+    display: flex;
+    /* flex-direction: column; */
+    gap: 18px;
+    flex-wrap: wrap;
+    font-size: 18px;
+  }
+
+  .breadcrumb-actionsMCKL {
+    margin-left: 16px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+
+  .rightMCKL select {
+visibility: hidden;
+display: none;
+  }
+
+  .editor-boxMCKL  {
+    height: 430px;
+  }
+.repoMCKL {
+  margin-left: 10px;
+
+}
+  .editor-footerMCKL {
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  .PORTUGAL{
+    margin-left: 120px;
+    margin-top: 10px;
+  }
+
+  .branchMCKL {
+    margin-top: 10px;
+    font-size: 15px;
+  }
+}

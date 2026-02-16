@@ -1,0 +1,111 @@
+.changelog-cardRAJU_RASHMI {
+  background: #fff;
+  border: 1px solid #e3e6ea;
+  border-radius: 16px;
+  padding: 24px 20px 16px 20px;
+  width: 340px;
+  height: 540px;
+  font-family: "Inter", sans-serif;
+  box-shadow: 0 2px 8px rgba(60, 60, 60, 0.04);
+  margin-top: 30px;
+}
+
+.changelog-titleRAJU_RASHMI {
+  font-size: 17px;
+  font-weight: 600;
+  color: #1f2328;
+  margin-bottom: 23px;
+}
+
+.changelog-listRAJU_RASHMI {
+  list-style: none;
+  margin: 0 0 10px 0;
+  padding: 10;
+  position: relative;
+}
+
+.changelog-itemRAJU_RASHMI {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  margin-bottom: 17px;
+  min-height: 38px;
+}
+
+.changelog-dotRAJU_RASHMI {
+  width: 8px;
+  height: 8px;
+  background: #d0d7de;
+  border-radius: 50%;
+  margin-right: 16px;
+  margin-top: 6px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.changelog-itemRAJU_RASHMI:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 18px;
+  width: 0;
+  height: 28px;
+  border-left: 2px solid #e3e6ea;
+  z-index: 0;
+}
+
+.changelog-contentRAJU_RASHMI {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.changelog-timeRAJU_RASHMI {
+  font-size: 13px;
+  color: #656d76;
+  margin-bottom: 2px;
+}
+
+.changelog-textRAJU_RASHMI {
+  font-size: 15px;
+  color: #1f2328;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 240px;
+}
+
+.changelog-linkRAJU_RASHMI {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #0969da;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.changelog-linkRAJU_RASHMI:hover {
+  text-decoration: underline;
+  /* position: fixed; */
+}
+
+@media screen and (max-width: 400px) {
+
+  .changelog-titleRAJU_RASHMI {
+    font-size: 15px;
+  }
+
+  .changelog-timeRAJU_RASHMI{
+    font-size: 13px;
+  }
+
+  .changelog-textRAJU_RASHMI {
+    font-size: 13px;
+  }
+
+  .changelog-cardRAJU_RASHMI {
+    height: 510px;
+  }
+
+}

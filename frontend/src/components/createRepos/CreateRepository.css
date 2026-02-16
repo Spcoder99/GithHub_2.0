@@ -1,0 +1,319 @@
+.pageKL {
+  display: flex;
+  justify-content: center;
+  margin-top: 59px;
+  overflow-x: hidden;
+}
+
+.containerKL {
+  width: 980px;
+  padding: 32px;
+}
+
+.h1kl {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: rgba(0, 0, 0, 0.763);
+}
+
+.subtitleKL {
+  font-size: 14px;
+  color: #57606a;
+}
+
+.subtitleKL a {
+  color: #0969da;
+  text-decoration: none;
+}
+
+.requiredKL {
+  font-size: 12px;
+  color: #57606a;
+  margin-top: 8px;
+}
+
+.sectionKL {
+  margin-top: 32px;
+}
+
+.section-headerKL {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-headerKL h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.749);
+}
+
+.stepKL {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #ddf4ff;
+  color: #0969da;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.rowKL {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.slashKL {
+  margin-top: 34px;
+  color: #57606a;
+}
+
+.fieldKL {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.njio {
+  margin-top: 15px;
+}
+
+.jklopi {
+  font-weight: 400;
+}
+
+.jiop {
+  text-decoration: none;
+  color: #0969da;
+}
+
+.hj {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.527);
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.fieldKL label {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.fieldKL input,
+textarea {
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+textarea {
+  min-height: 120px;
+}
+
+.fieldKL small {
+  font-size: 12px;
+  color: #57606a;
+}
+
+.selectKL,
+.dropdownKL {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  background: #f6f8fa;
+  cursor: pointer;
+}
+
+.growKL {
+  flex: 1;
+}
+
+.cardKL {
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  margin-top: 16px;
+}
+
+.card-rowKL {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  border-top: 1px solid #d0d7de;
+}
+
+.card-rowKL:first-child {
+  border-top: none;
+}
+
+.card-rowKL p {
+  font-size: 12px;
+  color: #57606a;
+}
+
+.switchKL {
+  position: relative;
+  width: 42px;
+  height: 22px;
+}
+
+.switchKL input {
+  display: none;
+}
+
+.sliderKL {
+  position: absolute;
+  inset: 0;
+  background: #d0d7de;
+  border-radius: 999px;
+}
+
+.sliderKL::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+}
+
+.create-btnKL {
+  margin-top: 32px;
+  background: #1f883d;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.optionalKL {
+  font-size: 12px;
+  color: #57606a;
+}
+
+/* when toggle ON */
+.switchKL input:checked + .sliderKL {
+  background: #1f883d;
+}
+
+/* move circle */
+.switchKL input:checked + .sliderKL::before {
+  transform: translateX(20px);
+}
+
+
+
+.NAJA-NAJA {
+  font-weight: 500;
+}
+@media screen and (max-width: 400px) {
+  .sectionKL {
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 30px;
+    width: 380px;
+    margin-top: 33px;
+  }
+
+  .subtitleKL {
+    margin-left: 20px;
+    width: 370px;
+  }
+
+  .jklopi {
+    font-size: 11px !important ;
+    margin-top: 3px;
+  }
+
+  .requiredKL {
+    margin-left: 20px;
+  }
+
+  .containerKL .h1kl {
+    /* margin-top: 23px; */
+    margin-left: 20px;
+  }
+
+  .growKL input {
+    width: 300px;
+  }
+
+   .growKL small {
+    font-size: 12px;
+    margin-right: 3px;
+  } 
+
+  .growKL {
+    margin-bottom: 20px;
+  }
+
+  .slashKL {
+    margin-top: 0;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lolo input {
+    width: 300px;
+  }
+
+  
+  .dropdownKL {
+    padding: 6px 0px;
+    padding-left: 15px;
+    width: 110px;
+    text-align: center;
+  }
+  .containerKL {
+    /* width: 200px; */
+    /* padding-top: 34px; */
+    padding-left: 4px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+  }
+
+  .cardKL {
+    width: 350px;
+  }
+
+  .section-headerKL h2 {
+    width: 300px;
+  }
+
+  .hj {
+    font-size: 14px;
+    width: 340px;
+  }
+
+  .jklop {
+    width: 340px;
+  }
+
+  .create-btnKL {
+    margin-left: 130px;
+    margin-bottom: 30px;
+  }
+
+  .rowKL {
+    display: flex;
+    flex-direction: column;
+  }
+}

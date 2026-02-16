@@ -1,0 +1,369 @@
+#dashboard {
+  display: flex;
+  /* width: 1080px; */
+  justify-content: space-around;
+  background-color: white;
+  margin-top: 60px;
+  border: 1px solid rgba(0, 0, 0, 0.107);
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  /* height: 100vh; */
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.c1 {
+  /* width: 23%; */
+  border: 1px solid rgba(0, 0, 0, 0.162);
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  gap: 9px;
+  text-align: center;
+  padding-right: 30px;
+  /* min-height: 100vh; */
+}
+
+.d1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding-top: 20px;
+  justify-content: left;
+  /* margin-right: 90px; */
+  margin-left: 25px;
+  margin-top: 12px;
+}
+
+/* Add to your CSS file */
+.new-repo-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #238636;
+  color: #fff;
+  font-weight: 400;
+  font-size: 12px;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 15px 5px 11px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.new-repo-btn:hover {
+  background-color: #2ea043;
+}
+
+.new-repo-btn .icon9 {
+  height: 20px;
+  width: 20px;
+}
+
+.c1 .h31 {
+  /* padding-right: 10px; */
+  font-size: medium;
+}
+
+.main {
+  width: 50%;
+  padding-left: 22px;
+}
+
+.main h2 {
+  margin-top: 37px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.c2 {
+  width: 27%;
+}
+
+.email-wrapper {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  gap: 10px;
+  margin-left: 20px;
+  margin-top: 15px;
+
+  height: 40px;
+  border-radius: 12px;
+  overflow: hidden;
+
+  /* background-color: #ffffff;
+   */
+  background-color: #f6f8fa;
+  border: 2px solid rgba(0, 255, 187, 0.05); /* gray-500/30 */
+}
+
+.email-input {
+  width: 80%;
+  height: 100%;
+  padding-left: 24px;
+  margin-left: 5px;
+  border: none;
+  outline: none;
+
+  background: transparent;
+  font-size: 14px;
+  /* color: rgba(255, 255, 255, 0.9); */
+}
+
+.email-input::placeholder {
+  color: #6b7280; /* gray-500 */
+}
+
+.dd1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+  padding-left: 25px;
+}
+
+.imgd {
+  height: 20px;
+  width: 20px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+}
+
+.p1 {
+  font-weight: 400;
+}
+
+/* Star button group like GitHub */
+.star-btn-group {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: none;
+  border: 1px solid #d0d7de;
+  background: #f6f8fa;
+  position: relative;
+  right: 0px;
+  margin-top: 0px;
+}
+
+.star-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #f6f8fa;
+  color: #24292f;
+  font-size: 12px;
+  font-weight: 500;
+  border: none;
+  padding: 6px 11px 6px 11px;
+  cursor: pointer;
+  outline: none;
+}
+
+.star-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: #1f883d;
+}
+
+.trending-card {
+  background: #fff;
+  border: 1px solid #e3e6ea;
+  border-radius: 12px;
+  padding: 16px 18px 14px 18px;
+  width: 450px;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  box-shadow: 0 1.5px 6px 0 rgba(27, 31, 36, 0.04);
+  margin-top: 24px;
+  margin-left: 101px;
+  height: auto;
+  transition:
+    box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.trending-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* margin-bottom: 10px; */
+}
+
+.trending-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #24292f;
+  display: flex;
+  align-items: center;
+}
+
+.trending-link {
+  font-size: 14px;
+  color: #0969da;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.trending-link:hover {
+  text-decoration: underline;
+}
+
+.repo-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.repo-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  margin-right: 8px;
+}
+
+.repo-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0969da;
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.repo-name:hover {
+  text-decoration: underline;
+}
+
+.repo-desc {
+  font-size: 14px;
+  color: #24292f;
+  margin-bottom: 8px;
+  margin-left: 45px;
+}
+
+.repo-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: 32px;
+  font-size: 13px;
+  color: #656d76;
+  margin-top: 20px;
+}
+
+.repo-lang {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.lang-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.repo-stars {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  /* fill: #096bda2c; */
+}
+.trending-card:hover {
+  box-shadow:
+    0 6px 24px 0 rgba(27, 31, 36, 0.13),
+    0 1.5px 6px 0 rgba(27, 31, 36, 0.04);
+  transform: translateY(-4px) scale(1.015);
+  z-index: 2;
+}
+
+@media screen and (max-width: 400px) {
+  #dashboard {
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    /* align-items: center; */
+    /* justify-content: center; */
+  }
+
+  .c1 {
+    display: flex;
+    margin-top: 20px;
+    align-items: start;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.151);
+    border-top: none;
+    /* border-bottom: none; */
+    border-left: none;
+    border-right: none;
+    padding-bottom: 25px;
+    min-height: 0vh;
+  }
+
+  .main {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.151);
+    border-top: none;
+    /* border-bottom: none; */
+    border-left: none;
+    border-right: none;
+    padding-bottom: 25px;
+    /* margin-left: 0px; */
+    padding-left: 0;
+  }
+  .c2 {
+    width: 100%;
+    margin-left: 20px;
+  }
+
+  .d1 {
+    margin-left: 47px;
+  }
+
+  .email-wrapper {
+    margin-left: 40px;
+  }
+
+  .dd1 {
+    padding-left: 37px;
+  }
+
+  .trending-card {
+    /* margin-left: 35px; */
+    margin-left: 13px;
+    width: 360px;
+  }
+
+  .main h2 {
+    margin-left: 40px;
+  }
+
+  .repo-meta {
+    margin-left: 0px;
+  }
+
+  .btn3 {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background: #f6f8fa;
+    color: #24292f;
+    font-size: 10px;
+    font-weight: 600;
+    border: none;
+    padding: 6px 10px 6px 10px;
+    cursor: pointer;
+    outline: none;
+  }
+}

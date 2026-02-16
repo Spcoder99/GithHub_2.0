@@ -1,0 +1,273 @@
+.repo-pageXTYUIOP {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  color: #1f2328;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial;
+  margin-top: 64px;
+}
+
+/* Tabs */
+.repo-tabsXTYUIOP {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid #d0d7de;
+  /* padding-bottom: 8px; */
+}
+
+.repo-tabXTYUIOP {
+  display: flex;
+  gap: 6px;
+  padding-bottom: 10px;
+  cursor: pointer;
+  color: #57606a;
+  font-size: 14px;
+}
+
+.repo-tabXTYUIOP.activeXTYUIOP {
+  color: #1f2328;
+  border-bottom: 2px solid #fd8c73;
+  font-weight: 600;
+}
+
+/* Header */
+.repo-headerXTYUIOP {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-bottom: 8px;
+}
+
+.repo-leftXTYUIOP {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.repo-avatarXTYUIOP {
+  width: 32px;
+  border-radius: 50%;
+}
+
+.repo-nameXTYUIOP {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.repo-pillXTYUIOP {
+  border: 1px solid #d0d7de;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.repo-actionsXTYUIOP {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btnXTYUIOP {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #d0d7de;
+  background: #f6f8fa;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.countXTYUIOP {
+  background: #eaeef2;
+  padding: 2px 6px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+/* Cards */
+.repo-cardsXTYUIOP {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 30px 0;
+}
+
+.repo-cardXTYUIOP {
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.repo-cardXTYUIOP h4 {
+  margin: 12px 0 6px;
+}
+
+.repo-cardXTYUIOP p {
+  font-size: 14px;
+  color: #57606a;
+}
+
+/* Buttons */
+.btnXTYUIOP {
+  border: 1px solid #d0d7de;
+  background: #f6f8fa;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 1px;
+}
+
+.btnXTYUIOP.secondaryXTYUIOP {
+  margin-top: 12px;
+}
+
+/* Quick setup */
+.quick-setupXTYUIOP {
+  background: #ddf4ff;
+  border: 1px solid #80ccff;
+  padding: 16px;
+  border-radius: 6px;
+}
+
+.setup-rowXTYUIOP {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 7px;
+  margin-bottom: 9px;
+}
+
+.pillXTYUIOP {
+  background: #ffffff;
+  border: 1px solid #d0d7de;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.copy-boxXTYUIOP {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #d0d7de;
+  background: #ffffff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.setup-textXTYUIOP {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.setup-textXTYUIOP a {
+  color: #0969da;
+  text-decoration: none;
+}
+
+/* CLI blocks */
+.cli-block {
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  padding: 16px;
+  margin-top: 19px;
+  position: relative;
+}
+
+.cli-block pre {
+  background: #f6f8fa;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  overflow-x: auto;
+}
+
+.cli-block h4 {
+  font-weight: 600;
+  margin-top: 3px;
+  margin-bottom: 9px;
+}
+
+.cli-block pre code div {
+  margin-bottom: 5px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.copy-iconXTYUIOP {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+}
+
+/* Pro tip */
+.protipXTYUIOP {
+  margin: 24px 0;
+  font-size: 14px;
+  color: #57606a;
+}
+
+
+@media screen and (max-width: 400px) {
+  .repo-tabsXTYUIOP {
+    /* margin-top: 13px; */
+  }
+  .popopopo {
+    visibility: hidden;
+    display: none;
+  }
+
+  .repo-cardsXTYUIOP {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .setup-textXTYUIOP {
+    font-size: 12px;
+  }
+
+  .quick-setupXTYUIOP h3 {
+    margin-top: 3px;
+    margin-bottom: 8px;
+    font-size: 18px;
+  }
+
+  .copy-boxXTYUIOP {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .repo-cardXTYUIOP p {
+    font-size: 13px;
+    margin-top: 3px;
+    margin-bottom: 2px;
+  }
+
+  .repo-actionsXTYUIOP {
+    visibility: hidden;
+    display: none;
+  }
+
+  .repo-pillXTYUIOP {
+    font-size: 14px;
+    margin-left: 164px;
+  }
+
+  .repo-avatarXTYUIOP {
+    width: 40px;
+  }
+
+  .repo-nameXTYUIOP {
+    font-size: 22px;
+    margin-left: 10px;
+    margin-right: 6px;
+  }
+
+
+}

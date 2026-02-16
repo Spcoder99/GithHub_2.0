@@ -1,0 +1,266 @@
+.issues-layout {
+  display: flex;
+  height: 100vh;
+  /* background: #0d1117; */
+  background: #ffffff;
+  color: #1f2328;
+  margin-top: 67px;
+  font-family: Arial, Helvetica, sans-serif;
+  border-top: 2px double #30363d62;
+}
+
+/* Sidebar */
+.issues-sidebar {
+  width: 260px;
+  border-right: 1px solid #30363d30;
+  padding: 16px 12px;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.678);
+  font-weight: 500;
+}
+
+.sidebar-item:hover {
+  background: #eceef0;
+}
+
+.sidebar-item.active {
+  background: #7d7d7d82;
+  font-weight: 600;
+}
+
+.views {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 10px;
+  color: #6b6b6d;
+}
+
+/* Main */
+.issues-main {
+  flex: 1;
+  padding: 20px 24px;
+}
+
+.issues-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.new-issue-btn {
+  background: #238636;
+  color: white;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.new-issue-btn:hover {
+  background: #2ea043;
+}
+
+/* Filter */
+.filter-bar {
+  margin-top: 15px;
+  border: 1px solid #30363d2e;
+  background: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #353535;
+}
+
+.filter-input span {
+  font-size: 14px;
+}
+
+/* Results */
+.results-box {
+  margin-top: 16px;
+  border: 1px solid #30363d2f;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.results-header {
+  padding: 10px 12px;
+  border-bottom: 1px solid #30363d2d;
+  display: flex;
+  justify-content: space-between;
+  color: #0d1117;
+  background-color: #f6f8fa;
+}
+
+.updated {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.no-results {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.no-results h3 {
+  margin-bottom: 6px;
+}
+
+.no-results p {
+  color: #8b949e;
+  font-size: 14px;
+}
+
+
+.issues-wrapperMG {
+  width: 100%;
+  max-width: 980px;
+  margin: 20px auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif;
+}
+
+/* HEADER */
+.issues-headerMG {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f6f8fa;
+  padding: 12px 16px;
+  border: 1px solid #d0d7de;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+}
+
+.resultsMG {
+  font-size: 14px;
+  font-weight: 600;
+  color: #24292f;
+}
+
+.updated-sortMG {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #57606a;
+  cursor: pointer;
+}
+
+/* ISSUE ROW */
+.issue-rowMG {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 16px;
+  border: 1px solid #d0d7de;
+  border-radius: 0 0 6px 6px;
+  background: white;
+  margin-bottom: 14px;
+}
+
+.issue-leftMG {
+  display: flex;
+  /* flex-direction: row; */
+  gap: 12px;
+}
+
+.open-iconMG {
+  color: #2da44e; /* github green */
+  margin-top: 3px;
+}
+
+.issue-titleMG {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0969da;
+  cursor: pointer;
+}
+
+.issue-titleMG:hover {
+  text-decoration: underline;
+}
+
+.issue-metaMG {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #57606a;
+}
+
+.repoMG {
+  font-weight: 500;
+  color: #57606a;
+}
+
+.hashMG {
+  margin-left: 4px;
+}
+
+/* COMMENTS */
+.issue-commentsMG {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #57606a;
+  font-size: 12px;
+}
+
+
+
+@media screen and (max-width: 400px) {
+  .issues-layout {
+    display: flex;
+    flex-direction: column;
+    border-top: 2px double #30363d62;
+  }
+
+  .issues-sidebar {
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 12px;
+    border-right: none;
+    border-bottom: 1px solid #30363d30;
+    margin-top: 20px;
+  }
+  .views {
+    margin-bottom: 12px;
+  }
+  .issues-top {
+    margin-top: 3px;
+    margin-bottom: 8px;
+  }
+
+  .sidebar-item {
+    margin-bottom: 2px;
+  }
+
+  .filter-bar {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  .filter-input span {
+    font-size: 14px;
+  }
+
+  .llm {
+    font-size: 22px;
+    /* height: 22px;
+    width: 15px; */
+  }
+}

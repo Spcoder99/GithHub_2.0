@@ -1,0 +1,102 @@
+.update-repo-containerKRISHNA {
+  max-width: 600px;
+  margin: 40px auto;
+  margin-top: 105px;
+  padding: 20px;
+  background: #f6f8fa; /* GitHub-style light background */
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(27,31,35,0.12), 0 8px 24px rgba(27,31,35,0.08);
+}
+
+.update-repo-containerKRISHNA h2 {
+  font-size: 1.5rem;
+  color: #24292f;
+  margin-bottom: 1rem;
+}
+
+.update-formKRISHNA label {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: #24292f;
+}
+
+.update-formKRISHNA input,
+.update-formKRISHNA textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 1rem;
+  margin-top: 0.3rem;
+}
+
+.update-formKRISHNA textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.update-formKRISHNA button {
+  margin-top: 1rem;
+  padding: 10px 20px;
+  background: #2ea44f; /* GitHub green */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+.update-formKRISHNA button:hover {
+  background: #2c974b;
+}
+
+.messageKRISHNA {
+  margin-bottom: 1rem;
+  color: #24292f;
+  font-weight: 500;
+}
+
+.loadingKRISHNA {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #586069;
+}
+
+.visibility-toggleKLOPKRISHNA {
+   display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* Mobile responsive */
+@media screen and (max-width: 400px) {
+  .update-repo-containerKRISHNA {
+    padding: 15px;
+    margin: 20px auto;
+    margin-top: 106px;
+    margin-left: 20px;
+    /* margin-right: 50px; */
+    width: 350px;
+  }
+
+  .update-repo-containerKRISHNA h2 {
+    font-size: 1.2rem;
+  }
+
+  .update-formKRISHNA input,
+  .update-formKRISHNA textarea {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
+
+  .update-formKRISHNA button {
+    padding: 8px 16px;
+    font-size: 0.95rem;
+  }
+}

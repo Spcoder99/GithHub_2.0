@@ -1,0 +1,238 @@
+
+.gh-wrapperCHUTH_MANANI_KA {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  padding-top: 89px;
+}
+
+/* TOPBAR */
+
+.gh-topbarCHUTH_MANANI_KA {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.gh-tabsCHUTH_MANANI_KA {
+  display: flex;
+  gap: 8px;
+}
+
+.gh-tabCHUTH_MANANI_KA {
+  padding: 6px 14px;
+  border: 1px solid #d0d7de;
+  background: #f6f8fa;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.gh-tabCHUTH_MANANI_KA.activeCHUTH_MANANI_KA {
+  background: #0969da;
+  color: white;
+  border-color: #0969da;
+}
+
+.gh-searchCHUTH_MANANI_KA {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #d0d7de;
+  background: white;
+  border-radius: 6px;
+  padding: 6px 12px;
+  width: 420px;
+}
+
+.gh-searchCHUTH_MANANI_KA input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+}
+
+/* BOX */
+
+.gh-boxCHUTH_MANANI_KA {
+  border: 1px solid #d0d7de;
+  background: white;
+  border-radius: 6px;
+}
+
+.gh-box-headerCHUTH_MANANI_KA {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid #d0d7de;
+  font-size: 14px;
+}
+
+.gh-statusCHUTH_MANANI_KA {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.closed-iconCHUTH_MANANI_KA {
+  margin-left: 16px;
+}
+
+.gh-sortCHUTH_MANANI_KA {
+  display: flex;
+  gap: 20px;
+  color: #57606a;
+}
+
+.gh-sortCHUTH_MANANI_KA span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+/* EMPTY */
+
+.gh-emptyCHUTH_MANANI_KA {
+  text-align: center;
+  padding: 80px 20px;
+  color: #57606a;
+}
+
+.gh-emptyCHUTH_MANANI_KA h2 {
+  margin-top: 16px;
+  font-size: 22px;
+  color: #24292f;
+}
+
+.gh-emptyCHUTH_MANANI_KA p {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.gh-emptyCHUTH_MANANI_KA a {
+  color: #0969da;
+  cursor: pointer;
+}
+
+/* PROTIP */
+
+.gh-protipCHUTH_MANANI_KA {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #57606a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gh-badgeCHUTH_MANANI_KA {
+  background: #eaeef2;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+/* FOOTER */
+
+.gh-footerCHUTH_MANANI_KA {
+  margin-top: 260px;
+  padding-top: 20px;
+  border-top: 1px solid #d0d7de;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #57606a;
+}
+
+.gh-footer-leftCHUTH_MANANI_KA {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gh-footer-linksCHUTH_MANANI_KA {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.gh-footerCHUTH_MANANI_KA a {
+  cursor: pointer;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media screen and (max-width: 400px) {
+
+  .gh-wrapperCHUTH_MANANI_KA {
+    padding: 16px;
+    padding-top: 80px;
+  }
+
+  /* Topbar stack */
+  .gh-topbarCHUTH_MANANI_KA {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  /* Tabs wrap instead of overflow */
+  .gh-tabsCHUTH_MANANI_KA {
+    flex-wrap: wrap;
+  }
+
+  .gh-tabCHUTH_MANANI_KA {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  /* Search full width */
+  .gh-searchCHUTH_MANANI_KA {
+    width: 100%;
+  }
+
+  /* Header stack */
+  .gh-box-headerCHUTH_MANANI_KA {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* Sort items wrap */
+  .gh-sortCHUTH_MANANI_KA {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* Empty area spacing */
+  .gh-emptyCHUTH_MANANI_KA {
+    padding: 60px 10px;
+  }
+
+  .gh-emptyCHUTH_MANANI_KA h2 {
+    font-size: 18px;
+  }
+
+  /* Pro tip wrap */
+  .gh-protipCHUTH_MANANI_KA {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  /* Footer fix (remove huge space) */
+  .gh-footerCHUTH_MANANI_KA {
+    margin-top: 60px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .gh-footer-linksCHUTH_MANANI_KA {
+    gap: 10px;
+  }
+}

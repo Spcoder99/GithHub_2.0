@@ -1,0 +1,193 @@
+.issue-wrapper {
+  width: 100%;
+  height: 100vh;
+  background: #f6f8fa;
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  margin-top: 67px;
+}
+
+/* ================= top bar ================= */
+.issue-top {
+  height: 56px;
+  background: white;
+  border-bottom: 1px solid #d0d7de;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  font-weight: 600;
+}
+
+.issue-top .left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.top-icon {
+  color: #57606a;
+  cursor: pointer;
+}
+
+/* ================= body ================= */
+.issue-body {
+  max-width: 900px;
+  margin: 24px auto;
+  width: 100%;
+}
+
+/* field */
+.field {
+  margin-bottom: 20px;
+}
+
+.field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.field label span {
+  color: red;
+}
+
+/* title input */
+.title-input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #d0d7de;
+  font-size: 14px;
+  outline: none;
+}
+
+.title-input:focus {
+  border-color: #0969da;
+  box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.2);
+}
+
+/* ================= editor ================= */
+.editor {
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  overflow: hidden;
+  background: white;
+}
+
+/* tabs */
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #d0d7de;
+  background: #f6f8fa;
+}
+
+.tab {
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #57606a;
+}
+
+.tab.active {
+  background: white;
+  border-right: 1px solid #d0d7de;
+  border-left: 1px solid #d0d7de;
+  border-top: 2px solid #fd8c73;
+  color: black;
+  font-weight: 600;
+}
+
+/* toolbar */
+.toolbar {
+  display: flex;
+  gap: 12px;
+  padding: 10px 12px;
+  border-bottom: 1px solid #d0d7de;
+  color: #57606a;
+}
+
+/* textarea */
+.editor textarea {
+  width: 100%;
+  min-height: 220px;
+  border: none;
+  resize: vertical;
+  padding: 12px;
+  font-size: 14px;
+  outline: none;
+}
+
+/* file hint */
+.file-hint {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #57606a;
+}
+
+/* ================= footer ================= */
+.issue-footer {
+  margin-top: auto;
+  background: white;
+  border-top: 1px solid #d0d7de;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.create-more {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 14px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.cancel {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid #d0d7de;
+  background: #f6f8fa;
+  cursor: pointer;
+}
+
+.create {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  background: #2da44e;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+
+
+@media screen and (max-width: 400px) {
+  .title-input {
+    width: 300px;
+  }
+
+  .field {
+    margin-top: 10px;
+    margin-left: 28px;
+  }
+
+  .issue-wrapper{
+    margin-top: 72px;
+  }
+
+  .editor {
+    width: 342px;
+  }
+  .LOPA-MUDRA{
+    font-size: 13px;
+    /* width: 300px; */
+  }
+}

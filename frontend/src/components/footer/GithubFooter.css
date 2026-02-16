@@ -1,0 +1,66 @@
+.github-footererosnow {
+  width: 100%;
+  padding: 24px 32px;
+  border-top: 1px solid #d0d7de;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  color: #57606a;
+  background: #ffffff;
+  /* margin-top: 45px; */
+  /* position: fixed;
+  bottom: 0; */
+  margin-top: 32px;   
+}
+
+.footer-lefterosnow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.footer-lefterosnow svg {
+  color: #57606a;
+}
+
+.footer-linkserosnow {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-linkserosnow li {
+  cursor: pointer;
+}
+
+.footer-linkserosnow li:hover {
+  color: #0969da;
+  text-decoration: underline;
+}
+
+.nowraperosnow {
+  white-space: nowrap;
+}
+
+/* 🔹 Mobile (≤ 400px) */
+@media screen and (max-width: 400px) {
+  .github-footererosnow {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 16px;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .footer-linkserosnow {
+    justify-content: center;
+    gap: 12px;
+  }
+}

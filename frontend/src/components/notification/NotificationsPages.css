@@ -1,0 +1,257 @@
+/* * {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+} */
+
+
+/* WRAPPER */
+
+.ghN-wrapperNARENDRA_MODI {
+  display: flex;
+  min-height: 100vh;
+  margin-top: 74px;
+}
+
+/* SIDEBAR */
+
+.ghN-sidebarNARENDRA_MODI {
+  width: 260px;
+  padding: 20px;
+  background: #ffffff;
+  border-right: 1px solid #d0d7de;
+}
+
+.ghN-menu-itemNARENDRA_MODI {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #24292f;
+}
+
+.ghN-menu-itemNARENDRA_MODI.activeNARENDRA_MODI {
+  background: #ddf4ff;
+  font-weight: 600;
+}
+
+.ghN-menu-itemNARENDRA_MODI:hover {
+  background: #f3f4f6;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #d8dee4;
+  margin: 16px 0;
+}
+
+.ghN-filter-titleNARENDRA_MODI {
+  font-size: 12px;
+  color: #57606a;
+  margin-bottom: 8px;
+}
+
+.ghN-filter-itemNARENDRA_MODI {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 4px;
+  font-size: 14px;
+  color: #24292f;
+  cursor: pointer;
+}
+
+.ghN-filter-itemNARENDRA_MODI:hover {
+  color: #0969da;
+}
+
+.ghN-manageNARENDRA_MODI {
+  font-size: 14px;
+  color: #57606a;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+/* CONTENT */
+
+.ghN-contentNARENDRA_MODI {
+  flex: 1;
+  padding: 24px;
+}
+
+/* TOPBAR */
+
+.ghN-topbarNARENDRA_MODI {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.ghN-tabsNARENDRA_MODI {
+  display: flex;
+  gap: 6px;
+}
+
+.ghN-tabNARENDRA_MODI {
+  padding: 6px 12px;
+  border: 1px solid #d0d7de;
+  background: #f6f8fa;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.ghN-tabNARENDRA_MODI.activeNARENDRA_MODI {
+  background: #ffffff;
+  font-weight: 600;
+}
+
+.ghN-searchNARENDRA_MODI {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #d0d7de;
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 6px 12px;
+}
+
+.ghN-searchNARENDRA_MODI input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+}
+
+.ghN-groupNARENDRA_MODI {
+  font-size: 14px;
+  color: #24292f;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+/* CARD */
+
+.ghN-cardNARENDRA_MODI {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #d0d7de;
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 30px;
+}
+
+.ghN-card-leftNARENDRA_MODI {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.ghN-cardNARENDRA_MODI h4 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.ghN-cardNARENDRA_MODI p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #57606a;
+}
+
+.ghN-card-actionsNARENDRA_MODI {
+  display: flex;
+  gap: 10px;
+}
+
+.ghN-btn-secondaryNARENDRA_MODI {
+  padding: 6px 12px;
+  border: 1px solid #d0d7de;
+  background: #f6f8fa;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.ghN-btn-primaryNARENDRA_MODI {
+  padding: 6px 12px;
+  border: none;
+  background: #2da44e;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* EMPTY */
+
+.ghN-emptyNARENDRA_MODI {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.ghN-emptyNARENDRA_MODI img {
+  width: 300px;
+  max-width: 100%;
+}
+
+.ghN-emptyNARENDRA_MODI h2 {
+  margin-top: 20px;
+  font-size: 22px;
+}
+
+.ghN-emptyNARENDRA_MODI p {
+  color: #57606a;
+  font-size: 14px;
+}
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 400px) {
+
+  .ghN-wrapperNARENDRA_MODI {
+    flex-direction: column;
+  }
+
+  .ghN-sidebarNARENDRA_MODI {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #d0d7de;
+  }
+
+  .ghN-contentNARENDRA_MODI {
+    padding: 16px;
+  }
+
+  .ghN-topbarNARENDRA_MODI {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .ghN-groupNARENDRA_MODI {
+    justify-content: center;
+  }
+
+  .ghN-cardNARENDRA_MODI {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .ghN-card-actionsNARENDRA_MODI {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .ghN-emptyNARENDRA_MODI img {
+    width: 220px;
+  }
+}

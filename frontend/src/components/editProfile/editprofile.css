@@ -1,0 +1,78 @@
+.acc-wrapBHSDK {
+  max-width: 600px;
+  margin: 90px auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial;
+}
+
+.acc-wrapBHSDK h2 {
+  margin-bottom: 20px;
+}
+
+/* group */
+.input-groupBHSDK {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-groupBHSDK label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.input-groupBHSDK input {
+  padding: 10px;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* password */
+.pass-boxBHSDK {
+  position: relative;
+}
+
+.eyeBHSDK {
+  position: absolute;
+  right: 10px;
+  top: 9px;
+  cursor: pointer;
+  color: gray;
+}
+
+/* button */
+.save-btnBHSDK {
+  margin-top: 10px;
+  background: #2da44e;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.save-btnBHSDK:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+
+@media screen and (max-width: 400px) {
+  .acc-wrapBHSDK {
+    margin: 10px;
+    margin-top: 92px;
+    padding: 12px;
+  }
+
+  .save-btnBHSDK {
+    width: 100%;
+    justify-content: center;
+  }
+}

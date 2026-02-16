@@ -1,0 +1,226 @@
+
+
+.gh-rootCHUTH {
+  padding: 0 24px 40px;
+  margin-top: 71px;
+  margin-bottom: 13px;
+}
+
+/* TABS */
+.gh-tabsCHUTH {
+  display: flex;
+  gap: 22px;
+  padding: 14px 0;
+  padding-bottom: 0px;
+  border-bottom: 1px solid #d0d7de;
+}
+
+.tabCHUTH {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #57606a;
+  font-size: 14px;
+  cursor: pointer;
+  padding-bottom: 10px;
+}
+
+.tabCHUTH.activeCHUTH {
+  color: #24292f;
+  border-bottom: 2px solid #fd8c73;
+  font-weight: 700;
+}
+
+.badgeCHUTH {
+  color: #57606a;
+  background: #d8dee4;
+  border-radius: 20px;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+
+/* PATH BAR */
+.path-barCHUTH {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0;
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+
+.branchCHUTH {
+  display: flex;
+  gap: 6px;
+  padding: 6px 10px;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+}
+
+.pathCHUTH {
+  display: flex;
+  gap: 6px;
+  flex: 1;
+}
+
+.linkCHUTH {
+  color: #0969da;
+  cursor: pointer;
+}
+
+.fileCHUTH {
+  font-weight: 600;
+}
+
+.path-actionsCHUTH {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #d0d7de;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+/* COMMIT BAR */
+.commit-barCHUTH {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #d0d7de;
+  padding: 10px 12px;
+  border-radius: 6px;
+}
+
+.commit-leftCHUTH {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.commit-leftCHUTH img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.authorCHUTH {
+  font-weight: 600;
+}
+
+.commit-rightCHUTH {
+  display: flex;
+  gap: 8px;
+  color: #57606a;
+  font-size: 13px;
+}
+
+/* META */
+.file-metaCHUTH {
+  margin: 10px 0;
+  font-size: 13px;
+  color: #57606a;
+  display: flex;
+  gap: 6px;
+}
+
+/* FILE ACTIONS */
+.file-actionsCHUTH {
+  display: flex;
+  justify-content: space-between;
+  background: #f6f8fa;
+  border: 1px solid #d0d7de;
+  border-radius: 6px 6px 0 0;
+  padding: 8px;
+  margin-top: 18px;
+}
+
+.file-actionsCHUTH button {
+  background: none;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.file-actionsCHUTH .activeCHUTH {
+  background: #fff;
+  border: 1px solid #d0d7de;
+}
+
+.icon-btnCHUTH {
+  border: 1px solid #d0d7de;
+  background: #fff;
+  padding: 6px;
+  border-radius: 6px;
+  margin-left: 6px;
+  /* font-weight: 900; */
+}
+
+/* CODE */
+.code-boxCHUTH {
+  border: 1px solid #d0d7de;
+  border-top: none; 
+  padding-top: 4px;
+  padding-bottom: 7px;
+}
+
+.code-lineCHUTH {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  padding: 2px 12px;
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+.lnCHUTH {
+  color: #57606a;
+  text-align: right;
+  padding-right: 12px;
+}
+
+button.activeCHUTH {
+  font-weight: 700;
+}
+
+.codeCHUTH {
+  white-space: pre-wrap;
+}
+
+.go-fileCHUTH {
+  /* border: 1px solid #d0d7de; */
+  color: black;
+  /* padding: 6px 10px; */
+  /* border-radius: 6px; */
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 400px) {
+  .MOROCCO {
+    display: none;
+    visibility: hidden;
+  }
+
+  .path-actionsCHUTH {
+    display: none;
+    visibility: hidden;
+  }
+
+  .gh-tabsCHUTH {
+    margin-bottom: 20px;
+  }
+
+  .path-barCHUTH {
+    margin-bottom: 18px;
+  }
+
+  .commit-rightCHUTH {
+    display: none;
+    visibility: hidden;
+  }
+
+  .file-actionsCHUTH {
+    margin-top: 24px;
+  }
+}

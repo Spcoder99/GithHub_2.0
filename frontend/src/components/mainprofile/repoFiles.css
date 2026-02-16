@@ -1,0 +1,260 @@
+.repo-wrapCDO {
+  max-width: 1280px;
+  margin: 72px auto;
+  padding: 0 24px;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial;
+  color: #1f2328;
+}
+
+/* Tabs */
+.repo-tabsCDO {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid #d0d7de;
+}
+
+.tabCDO {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 0;
+  font-size: 14px;
+  color: #57606a;
+  cursor: pointer;
+}
+
+.tabCDO.activeCDO {
+  color: #1f2328;
+  font-weight: 600;
+  border-bottom: 2px solid #fd8c73;
+}
+
+.badgeCDO {
+  background: #eaeef2;
+  border-radius: 999px;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+
+.repo-mainCDO {
+  margin-top: 7px;
+}
+
+/* Header */
+.repo-headerCDO {
+  display: flex;
+  justify-content: space-between;
+  margin: 24px 0;
+}
+
+.repo-titleCDO {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.repo-titleCDO img {
+  width: 32px;
+  border-radius: 50%;
+}
+
+.pillCDO {
+  border: 1px solid #d0d7de;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+/* Actions */
+.repo-actionsCDO {
+  display: flex;
+  gap: 8px;
+}
+
+.actionCDO {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: #f6f8fa;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Layout */
+.repo-bodyCDO {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 24px;
+}
+
+/* Toolbar */
+.repo-toolbarCDO {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.repo-toolbarCDO input {
+  margin-left: auto;
+  padding: 6px 10px;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+}
+
+.ghostCDO {
+  background: #f6f8fa;
+  border: 1px solid #d0d7de;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.code-btnCDO {
+  background: #2da44e;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+}
+
+/* Files */
+.file-tableCDO {
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+}
+
+.file-rowCDO {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  padding: 10px 16px;
+  border-bottom: 1px solid #d0d7de;
+}
+
+.file-rowCDO:last-child {
+  border-bottom: none;
+}
+
+.file-leftCDO {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+/* README */
+.readmeCDO {
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  padding: 16px;
+  margin-top: 43px;
+}
+
+.readmeCDO p {
+  margin-top: 9px;
+}
+
+.readme-headerCDO {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #d0d7de;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+
+
+.repo_UL_CDOP {
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+
+.repo-sideCDO {
+  margin-left: 24px;
+}
+/* Sidebar */
+.repo-sideCDO h4 {
+  margin-top: 16px;
+}
+
+.lang-barCDO {
+  display: flex;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 8px 0;
+}
+
+.lang-barCDO .jsCDO { width: 86%; background: #f1e05a; }
+.lang-barCDO .cssCDO { width: 13%; background: #563d7c; }
+.lang-barCDO .htmlCDO { width: 1%; background: #e34c26; }
+
+.lang-legendCDO span {
+font-size: 13px;
+margin-left: 8px;
+}
+
+@media screen and (max-width: 400px) {
+  .KLRAHUL {
+    display: none;
+    visibility: hidden;
+  }
+
+  .actionCDO {
+    display: none;
+    visibility: hidden;
+  }
+
+  .repo-bodyCDO {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .repo-toolbarCDO input {
+    visibility: hidden;
+    display: none;
+  }
+
+  .repo-toolbarCDO {
+    display: flex;
+    gap: 8px;
+    font-size: 12px;
+    align-items: center;
+    margin-bottom: 12px;
+    justify-content: space-between;
+    margin-bottom: 25px;
+  }
+
+  .ghostCDO {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .file-tableCDO {
+    margin-bottom: 27px;
+    /* font-size: 17px; */
+  }
+
+  .readmeCDO {
+    font-size: 14px;
+  }
+
+  .repo-sideCDO {
+    margin-left: 10px;
+  }
+
+  .readmeCDO p {
+    margin-top: 9px;
+  }
+
+  .repo-mainCDO {
+    margin-top: 0px;
+  }
+}

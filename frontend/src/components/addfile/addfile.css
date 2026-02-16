@@ -1,0 +1,195 @@
+/* TOP TABS */
+.top-tabs {
+  display: flex;
+  gap: 24px;
+  padding: 14px 24px;
+  padding-bottom: 0px;
+  border-bottom: 1px solid #d0d7de;
+  margin-top: 70px;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #57606a;
+  cursor: pointer;
+  padding-bottom: 10px;
+}
+
+.tab.active {
+  color: #24292f;
+  border-bottom: 2px solid #fd8c73;
+}
+
+/* PAGE */
+.gh-container {
+  padding: 24px;
+}
+
+.gh-page {
+  /* margin-top: 70px; */
+}
+
+/* BREADCRUMB */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.repo {
+  font-weight: 600;
+}
+
+.breadcrumb input {
+  padding: 6px 8px;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  width: 220px;
+}
+
+.branch {
+  background: #ddf4ff;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.breadcrumb-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+
+/* BUTTONS */
+.btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn.secondary {
+  background: #f6f8fa;
+  border: 1px solid #d0d7de;
+}
+
+.btn.primary {
+  background: #2da44e;
+  color: white;
+  border: none;
+}
+
+/* EDITOR TOOLBAR */
+.editor-toolbar {
+  display: flex;
+  justify-content: space-between;
+  background: #f6f8fa;
+  border: 1px solid #d0d7de;
+  border-bottom: none;
+  padding: 8px 12px;
+  border-radius: 6px 6px 0 0;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.tab-btn.active {
+  background: white;
+  border: 1px solid #d0d7de;
+}
+
+.editor-toolbar select {
+  margin-left: 8px;
+}
+
+/* EDITOR */
+.editor-box {
+  border: 1px solid #d0d7de;
+  border-radius: 0 0 6px 6px;
+}
+
+.editor-box textarea {
+  width: 100%;
+  height: 420px;
+  border: none;
+  padding: 12px;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 14px;
+  resize: none;
+  outline: none;
+}
+
+/* FOOTER */
+.editor-footer {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #57606a;
+}
+
+kbd {
+  background: #f6f8fa;
+  border: 1px solid #d0d7de;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+@media screen and (max-width: 400px) {
+  .top-tabs {
+    /* margin-top: 74px; */
+  }
+
+  .KERALA {
+    visibility: hidden;
+    display: none;
+  }
+
+  .breadcrumb {
+    display: flex;
+    /* flex-direction: column; */
+    gap: 18px;
+    flex-wrap: wrap;
+    font-size: 18px;
+  }
+
+  .breadcrumb-actions {
+    margin-left: 16px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+
+  .right select {
+    visibility: hidden;
+    display: none;
+  }
+
+  .editor-box {
+    height: 430px;
+  }
+  .repo {
+    margin-left: 10px;
+  }
+  .editor-footer {
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  .INAMINA {
+    margin-left: 120px;
+    margin-top: 10px;
+  }
+
+  .branch {
+    margin-top: 10px;
+    font-size: 15px;
+  }
+}

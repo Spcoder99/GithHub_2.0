@@ -1,0 +1,67 @@
+.delete-pageZEBRA {
+  min-height: 100vh;
+  background: #f6f8fa;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.delete-containerZEBRA {
+  width: 620px;
+  margin-top: 70px;
+}
+
+.delete-containerZEBRA h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.danger-boxZEBRA {
+  background: white;
+  border: 1px solid #d0d7de;
+  border-left: 4px solid #cf222e;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.warningZEBRA {
+  color: #24292f;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.danger-boxZEBRA label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.danger-boxZEBRA input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #d0d7de;
+  font-size: 14px;
+}
+
+.delete-btnZEBRA {
+  margin-top: 20px;
+  background: #cf222e;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.delete-btnZEBRA:hover {
+  background: #a40e26;
+}
+
+.delete-btnZEBRA:disabled {
+  background: #ffccd1;
+  cursor: not-allowed;
+}
