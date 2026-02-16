@@ -6,10 +6,11 @@ import axios from "axios";
 import { Loader2Icon } from "lucide-react";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/github-mark-white.svg";
 import { useAuth } from "../../context/authContext";
 import Footer from "../Footer";
+
 
 const Login = () => {
 
@@ -17,6 +18,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const { currentUser, setCurrentUser } = useAuth();
+
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -43,8 +46,8 @@ const Login = () => {
       toast.success(res?.data?.message || "Login successfull!");
 
       setTimeout(() => {
-        window.location.href = "/";
-      }, 1200);
+        navigate("/");
+      }, 1000);
 
     } catch (error) {
       console.error("Login error:", error?.response?.data || error?.message);
