@@ -28,7 +28,7 @@ import {
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import IssueModal from "./issuemodel/IssueModal";
 import "./navbar.css";
@@ -49,6 +49,8 @@ const Navbar = () => {
   const userId = localStorage.getItem("userId");
   const [user, setUser] = useState(null)
   const { setCurrentUser } = useAuth();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -280,7 +282,7 @@ const Navbar = () => {
                   localStorage.removeItem("token");
                   localStorage.removeItem("userId");
                   setCurrentUser(null);
-                  window.location.href = "/auth";
+                  navigate("/auth");
                 }}
                 style={{
                   all: "unset",
