@@ -31,9 +31,8 @@ import { useAuth } from "./context/authContext";
 import CodespacesPage from "./components/code/CodespacePage";
 import SponsorsPage from "./components/sponsers/SponsersPage";
 import ProfileSettings from "./components/settings/ProfileSettings";
-
+import McpServers from "./components/mcpserver/McpServers.jsx";
 import AppearancePage from "./components/appearances/AppearancePage";
-import McpServers from "./components/mcpserver/McpServers";
 
 const ProjectRoutes = () => {
   const { currentUser, setCurrentUser } = useAuth();
