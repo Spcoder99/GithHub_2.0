@@ -81,7 +81,9 @@ yargs(hideBin(process.argv))
 async function startServer() {
     // set up an express app
     const app = express();
-    const port = ENV.PORT || 8000;
+    // const port = ENV.PORT || 8000;
+    const port = process.env.PORT || 8000;
+
 
     app.use(bodyParser.json());
     app.use(express.json());
