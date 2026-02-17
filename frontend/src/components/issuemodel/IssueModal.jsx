@@ -10,12 +10,14 @@ export default function IssueModal({ onClose }) {
   const [selectedRepo, setSelectedRepo] = useState(null);
   const [open, setOpen] = useState(false);
   const dropRef = useRef();
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchRepos = async () => {
       try {
+        setLoading(true)
         const userId = localStorage.getItem("userId");
 
         const res = await axios.get(
@@ -30,6 +32,8 @@ export default function IssueModal({ onClose }) {
       } catch (error) {
         toast.error(error?.response?.data?.message || "Failed to fetch repositories");
         console.log(error?.response);
+      } finally {
+         setTimeout(() => setLoading(false), 300);
       }
     };
 
