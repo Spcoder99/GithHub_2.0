@@ -27,6 +27,8 @@ export default function CreateRepository() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
 
+    const [loadingButtons, setLoadingButtons] = useState({}); // Per-button loading
+
   useEffect(() => {
     const fetchCurrentUser = async () => {
       try {
@@ -59,6 +61,7 @@ export default function CreateRepository() {
 
   const handleCreateRepo = async () => {
     try {
+      setLoadingButtons(prev => ({ ...prev, [buttonKey]: true }));
       const owner = localStorage.getItem("userId"); // or from auth
 
       if (!owner) {
@@ -94,6 +97,8 @@ export default function CreateRepository() {
     } catch (error) {
       console.log(error);
       toast.error(error?.response?.data?.error || "Error creating repo");
+    } finally {
+      setLoadingButtons(prev => ({ ...prev, [buttonKey]: false }));
     }
   };
 
@@ -422,13 +427,14 @@ export default function CreateRepository() {
             <PlusCircle size={16} />
             Create repository
           </button> */}
+
           <button
             className="create-btnKL"
             onClick={handleCreateRepo}
-            disabled={loading}
+            disabled={loadingButtons["createRepo"]}
           >
             <PlusCircle size={16} />
-            {loading ? "Creating..." : "Create repository"}
+            {loadingButtons["createRepo"] ? "Creating..." : "Create repository"}
           </button>
 
         </div>
