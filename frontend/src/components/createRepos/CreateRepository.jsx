@@ -60,6 +60,7 @@ export default function CreateRepository() {
   // const navigate = useNavigate();
 
   const handleCreateRepo = async () => {
+    const buttonKey = "createRepo"; 
     try {
       setLoadingButtons(prev => ({ ...prev, [buttonKey]: true }));
       const owner = localStorage.getItem("userId"); // or from auth
