@@ -24,6 +24,9 @@ export default function AddRead() {
  
   const [repo, setRepo] = useState([]);
 
+  // ✅ Per-button loading
+  const [loadingButtons, setLoadingButtons] = useState({});
+
   const [loading, setLoading] = useState(false);
 
   const isCommitDisabled = content.trim() === "";
@@ -31,11 +34,13 @@ export default function AddRead() {
   const navigate = useNavigate();
 
   const handleCommit = async () => {
+    const key = "commitFile";
     try {
       if (!fileName.trim()) {
         toast.error("File name is required");
         return;
       }
+       setLoadingButtons((prev) => ({ ...prev, [key]: true }));
 
       const formData = new FormData();
       const file = new File([content], fileName); // fileName can be "folder1/folder2/myfile.txt" if you want folders
@@ -58,6 +63,8 @@ export default function AddRead() {
     } catch (error) {
       console.log(error);
       toast.error(error?.message || "Failed to commit file");
+    } finally {
+      setLoadingButtons((prev) => ({ ...prev, [key]: false }));
     }
 
 
@@ -128,17 +135,17 @@ export default function AddRead() {
 
             <div className="breadcrumb-actionsLUND">
               <button className="btnLUND secondaryLUND" onClick={cancelToggle}>Cancel changes</button>
-              <button
+               <button
                 className="btnLUND primaryLUND"
-                disabled={isCommitDisabled} // disables click
+                disabled={isCommitDisabled || loadingButtons["commitFile"]}
+                onClick={handleCommit}
                 style={{
                   opacity: isCommitDisabled ? 0.5 : 1,
                   cursor: isCommitDisabled ? "not-allowed" : "pointer",
-                  pointerEvents: isCommitDisabled ? "none" : "auto", // optional, extra safety
+                  pointerEvents: isCommitDisabled ? "none" : "auto",
                 }}
-                onClick={handleCommit}
               >
-                Commit changes…
+                {loadingButtons["commitFile"] ? "Committing..." : "Commit changes…"}
               </button>
             </div>
           </div>
