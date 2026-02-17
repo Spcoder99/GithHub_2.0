@@ -520,22 +520,6 @@ const Dashboard = () => {
                   >
                     Delete
                   </button>
-
-                  <button
-                    className="star-btn btn3"
-                    onClick={() => handleToggleVisibility(repo?._id)}
-                    style={{
-                      backgroundColor: repo?.visibility ? "#6b7280" : "#238636",
-                      color: "white",
-                      // marginLeft: "5px",
-                      border: "2px double black",
-                      borderRadius: "10px",
-                      opacity: "0.8",
-                    }}
-                  >
-                    {repo?.visibility ? "Private" : "Public"}
-                  </button>
-
                   
                     <button
                       className="star-btn btn3"
