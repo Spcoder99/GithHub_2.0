@@ -358,13 +358,13 @@ const Dashboard = () => {
                       }}
                       disabled={loadingButtons[`star-${repo?._id}`]}
                     >
-                      {loadingButtons[`star-${repo?._id}`] ? "Loading..." : 
+                      {loadingButtons[`star-${repo?._id}`] ? "Loading..." : <>
                         <svg viewBox="0 0 16 16" aria-hidden="true">
                              <path d="M8 12.027l-4.472 2.353.854-4.98L1.18 5.97l5.013-.728L8 1.25l1.807 3.992 5.013.728-3.202 3.43.854 4.98z" />
                         </svg>
-                        starredRepoIds.includes(repo?._id.toString()) ? <>
+                        starredRepoIds.includes(repo?._id.toString()) ? 
                           Unstar
-                        </> : <>
+                        : 
                         Star
                         </>}
                     </button>
