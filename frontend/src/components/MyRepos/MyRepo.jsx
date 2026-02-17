@@ -83,7 +83,6 @@ const MyRepo = () => {
       setDeletePassword("");
 
     } catch (error) {
-
       toast.error( error?.message||"Delete failed");
     } finally {
       setLoading(false);
@@ -146,7 +145,7 @@ const MyRepo = () => {
         toast.error(error?.message||"Failed to fetch repositories");
       } finally {
         setLoading(false);
-        // setTimeout(() => setLoading(false), 600);
+        // setTimeout(() => setLoading(false), 300);
         
       }
     };
