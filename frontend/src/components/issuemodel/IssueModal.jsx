@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./issueModal.css";
 import toast from "react-hot-toast";
+import TerminalLoader from "../Loader/TerminalLoader";
 
 export default function IssueModal({ onClose }) {
   const [repos, setRepos] = useState([]);
@@ -54,7 +55,7 @@ export default function IssueModal({ onClose }) {
   return (
     <>
       {/* <Navbar/> */}
-      {loading &&
+      {loading && <TerminalLoader/>}
       <div className="gh-overlayMAHAKAL">
         <div className="gh-modalMAHAKAL">
           {/* Header */}
@@ -142,8 +143,6 @@ export default function IssueModal({ onClose }) {
           </div>
         </div>
       </div>}
-      {/* <GithubFooter /> */}
-      }
     </>
 
   );
