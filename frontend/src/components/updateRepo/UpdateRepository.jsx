@@ -9,6 +9,7 @@ const UpdateRepository = () => {
   const { repoId } = useParams(); // get repoId from URL
   const [repo, setRepo] = useState({ name: "", description: "" });
   const [loading, setLoading] = useState(false);
+  const [buttonLoading, setButtonLoading] = useState(false); // button-specific loading
   const [message, setMessage] = useState("");
 const navigate = useNavigate();
   // Fetch repository data
