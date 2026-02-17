@@ -438,22 +438,32 @@ const Dashboard = () => {
 
                   {/* <button>Public</button> */}
                   <div className="star-btn-group">
-                    <button
+                     <button
                       className="star-btn"
                       onClick={() => handleToggleStar(repo?._id)}
                       style={{
                         backgroundColor:
-                          starredRepoIds?.includes(repo?._id.toString()) &&
+                          starredRepoIds.includes(repo?._id.toString()) &&
                           "#f87171",
                         color: "black",
                       }}
+                      disabled={loadingButtons[`star-${repo?._id}`]}
                     >
-                      <svg viewBox="0 0 16 16" aria-hidden="true">
-                        <path d="M8 12.027l-4.472 2.353.854-4.98L1.18 5.97l5.013-.728L8 1.25l1.807 3.992 5.013.728-3.202 3.43.854 4.98z" />
-                      </svg>
-                      {starredRepoIds?.includes(repo?._id.toString())
-                        ? "Unstar"
-                        : "Star"}
+                      {loadingButtons[`star-${repo?._id}`] ? "Loading..." : 
+                        starredRepoIds.includes(repo?._id.toString()) ? 
+                        <>
+                        <svg viewBox="0 0 16 16" aria-hidden="true">
+                             <path d="M8 12.027l-4.472 2.353.854-4.98L1.18 5.97l5.013-.728L8 1.25l1.807 3.992 5.013.728-3.202 3.43.854 4.98z" />
+                        </svg>
+                        Unstar
+                        </>
+                        : 
+                        <>
+                          <svg viewBox="0 0 16 16" aria-hidden="true">
+                             <path d="M8 12.027l-4.472 2.353.854-4.98L1.18 5.97l5.013-.728L8 1.25l1.807 3.992 5.013.728-3.202 3.43.854 4.98z" />
+                        </svg>
+                        Star
+                        </>}
                     </button>
                   </div>
                 </div>
@@ -526,7 +536,25 @@ const Dashboard = () => {
                     {repo?.visibility ? "Private" : "Public"}
                   </button>
 
-
+                  
+                    <button
+                      className="star-btn btn3"
+                      onClick={() => handleToggleVisibility(repo?._id)}
+                      style={{
+                        backgroundColor: repo?.visibility ? "#6b7280" : "#238636",
+                        color: "white",
+                        border: "2px double black",
+                        borderRadius: "10px",
+                        opacity: "0.8",
+                      }}
+                      disabled={loadingButtons[`visibility-${repo?._id}`]}
+                    >
+                      {loadingButtons[`visibility-${repo?._id}`]
+                        ? "Loading..."
+                        : repo?.visibility
+                        ? "Private"
+                        : "Public"}
+                    </button>
                 </div>
 
               </div>
