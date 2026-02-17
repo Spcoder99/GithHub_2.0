@@ -30,6 +30,9 @@ const ProfilePage = () => {
   const [open, setOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 400);
 
+  const [loadingButtons, setLoadingButtons] = useState({}); // ✅ NEW
+
+
   const [activityData, setActivityData] = useState([]);
   const [panelColors, setPanelColors] = useState({});
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -132,6 +135,8 @@ const ProfilePage = () => {
     try {
       const userId = localStorage.getItem("userId");
 
+      setLoadingButtons((prev) => ({ ...prev, [`star-${repoId}`]: true })); // ✅ BUTTON LOADING
+
       const res = await fetch(`${import.meta.env.VITE_API_URL}/toggleStar`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -161,11 +166,14 @@ const ProfilePage = () => {
     } catch (err) {
       console.error(err);
       toast.error(err?.response?.data?.error || "Failed to update star");
+    } finally {
+      setLoadingButtons((prev) => ({ ...prev, [`star-${repoId}`]: false })); // ✅ STOP BUTTON LOADING
     }
   };
 
   const handleFollow = async () => {
     try {
+       setLoadingButtons((prev) => ({ ...prev, follow: true }));
       const res = await fetch(`${import.meta.env.VITE_API_URL}/follow`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -181,6 +189,8 @@ const ProfilePage = () => {
       fetchProfile();
     } catch (err) {
       toast.error( err?.response?.data?.error||"Error");
+    } finally {
+      setLoadingButtons((prev) => ({ ...prev, follow: false }));
     }
   };
 
@@ -284,6 +294,7 @@ const ProfilePage = () => {
 
   const handleUnfollow = async () => {
     try {
+      setLoadingButtons((prev) => ({ ...prev, unfollow: true }));
       const res = await fetch(`${import.meta.env.VITE_API_URL}/unfollow`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -298,6 +309,8 @@ const ProfilePage = () => {
       fetchProfile();
     } catch (err) {
       toast.error( data?.message || "Error while unfollowing");
+    } finally {
+      setLoadingButtons((prev) => ({ ...prev, unfollow: false }));
     }
   };
 
@@ -320,6 +333,8 @@ const ProfilePage = () => {
   const handleToggleVisibility = async (repoId) => {
     try {
       // setLoading(true);
+
+      setLoadingButtons((prev) => ({ ...prev, [`visibility-${repoId}`]: true }));
 
       const res = await fetch(
         `${import.meta.env.VITE_API_URL}/repo/toggle/${repoId}`,
@@ -353,8 +368,8 @@ const ProfilePage = () => {
     } catch (err) {
       console.error(err);
       toast.error(err?.response?.data?.error || "Toggle failed");
-    } finally {
-      // setLoading(false);
+    }  finally {
+      setLoadingButtons((prev) => ({ ...prev, [`visibility-${repoId}`]: false }));
     }
   };
 
@@ -413,12 +428,12 @@ const ProfilePage = () => {
             {myId !== profileId ? (
               <>
                 {isFollowing ? (
-                  <button className="buttonOP" onClick={handleUnfollow}>
-                    Unfollow
+                  <button className="buttonOP" onClick={handleUnfollow}  disabled={loadingButtons.unfollow}>
+                     {loadingButtons.unfollow ? "..." : "Unfollow"}
                   </button>
                 ) : (
-                  <button className="buttonOP" onClick={handleFollow}>
-                    Follow
+                  <button className="buttonOP" onClick={handleFollow}  disabled={loadingButtons.follow}>
+                     {loadingButtons.follow ? "..." : "Follow"}
                   </button>
                 )}
 
@@ -612,13 +627,21 @@ const ProfilePage = () => {
                               "#f87171",
                             color: "black",
                           }}
+                           disabled={loadingButtons[`star-${repo?._id}`]}
                         >
-                          <svg viewBox="0 0 16 16" aria-hidden="true">
+                          
+                           {loadingButtons[`star-${repo?._id}`] ? "Loading..." : starredRepoIds.includes(repo?._id.toString()) ? 
+                           <>
+                           <svg viewBox="0 0 16 16" aria-hidden="true">
                             <path d="M8 12.027l-4.472 2.353.854-4.98L1.18 5.97l5.013-.728L8 1.25l1.807 3.992 5.013.728-3.202 3.43.854 4.98z" />
                           </svg>
-                          {starredRepoIds?.includes(repo?._id.toString())
-                            ? "Unstar"
-                            : "Star"}
+                             Unstar
+                           </> : <>
+                           <svg viewBox="0 0 16 16" aria-hidden="true">
+                            <path d="M8 12.027l-4.472 2.353.854-4.98L1.18 5.97l5.013-.728L8 1.25l1.807 3.992 5.013.728-3.202 3.43.854 4.98z" />
+                          </svg>
+                             Star
+                           </>}
                         </button>
                       </div>
                     </div>
@@ -693,8 +716,13 @@ const ProfilePage = () => {
                             borderRadius: "10px",
                             opacity: "0.8",
                           }}
+                           disabled={loadingButtons[`visibility-${repo?._id}`]}
                         >
-                          {repo?.visibility ? "Private" : "Public"}
+                         {loadingButtons[`visibility-${repo?._id}`]
+                        ? "Loading..."
+                        : repo?.visibility
+                        ? "Private"
+                        : "Public"}
                         </button>
 
                       </>}
