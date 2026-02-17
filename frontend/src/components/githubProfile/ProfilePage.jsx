@@ -108,6 +108,7 @@ const ProfilePage = () => {
       console.error(err);
     } finally {
       setLoading(false);
+    }
   };
 
   useEffect(() => {
