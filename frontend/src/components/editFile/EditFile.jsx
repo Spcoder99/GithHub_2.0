@@ -51,7 +51,7 @@ export default function EditFile() {
       } finally {
         // setLoading(false);
         // setLoading(false)
-             setTimeout(() => setLoading(false), 600);
+        setTimeout(() => setLoading(false), 600);
       }
     };
 
