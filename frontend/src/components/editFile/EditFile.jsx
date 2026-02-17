@@ -21,6 +21,7 @@ export default function EditFile() {
   // const { repoId } = useParams();
   const [fileName, setFileName] = useState("");
   const [content, setContent] = useState("");
+  const [loadingButtons, setLoadingButtons] = useState({}); // ✅ per-button loading
   // //  const { repoId } = useParams();
   const [repo, setRepo] = useState([]);
 
@@ -63,12 +64,16 @@ export default function EditFile() {
 
 
   const handleCommit = async () => {
+    const key = "commitBtn";
     try {
 
       if (!fileName.trim()) {
         toast.error("File name is required");
         return;
       }
+
+      
+      setLoadingButtons((prev) => ({ ...prev, [key]: true }));
 
       const formData = new FormData();
 
@@ -92,6 +97,8 @@ export default function EditFile() {
     } catch (err) {
       console.error("Error updating file:", err);
       toast.error(err?.response?.data?.error || "Failed to update file");
+    } finally {
+      setLoadingButtons((prev) => ({ ...prev, [key]: false }));
     }
   };
 
@@ -164,8 +171,12 @@ export default function EditFile() {
             <div className="breadcrumb-actionsMCKL">
               <button className="btnMCKL secondaryMCKL" onClick={handleClose}>Cancel changes</button>
               {/* <button className="btn primary">Commit changes…</button> */}
-              <button className="btnMCKL primaryMCKL" disabled={!fileName.trim()} onClick={handleCommit}>
-                Commit changes…
+                <button
+                className="btnMCKL primaryMCKL"
+                onClick={handleCommit}
+                disabled={!fileName.trim() || loadingButtons["commitBtn"]}
+              >
+                {loadingButtons["commitBtn"] ? "Committing..." : "Commit changes…"}
               </button>
             </div>
           </div>
