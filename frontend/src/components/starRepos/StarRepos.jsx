@@ -86,16 +86,35 @@ const StarRepo = () => {
 
   // ================= USER PROFILE =================
   useEffect(() => {
-    if (!profileId) return;
+  if (!profileId) return;
 
-    setUser(null);
-    fetch(`${import.meta.env.VITE_API_URL}/userProfile/${profileId}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setUser(data);
-      })
-      .catch((err) => console.error(err));
-  }, [profileId]);
+  const fetchProfile = async () => {
+    try {
+      setLoading(true);
+      setUser(null);
+
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/userProfile/${profileId}`
+      );
+
+      if (!res.ok) {
+        throw new Error("Failed to fetch profile");
+      }
+
+      const data = await res.json();
+      setUser(data);
+
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false)
+    }
+  };
+
+  fetchProfile();
+
+}, [profileId]);
+
 
   // ================= FETCH STARRED REPOS =================
   useEffect(() => {
