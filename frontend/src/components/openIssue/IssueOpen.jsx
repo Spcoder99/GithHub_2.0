@@ -17,6 +17,8 @@ const IssueOpen = () => {
   const [comment, setComment] = useState("");
   const [user, setUser] = useState(null);
 
+    const [loadingButtons, setLoadingButtons] = useState({}); // ✅ Per-button loading
+
   // For editing comments
   const [editingCommentId, setEditingCommentId] = useState(null);
   const [editText, setEditText] = useState("");
@@ -27,9 +29,11 @@ const IssueOpen = () => {
 
   // Add comment
   const handleAddComment = async () => {
+    const buttonKey = "addComment";
     if (!comment.trim()) return;
 
     try {
+       setLoadingButtons(prev => ({ ...prev, [buttonKey]: true }));
       const res = await axios.post(
         `${import.meta.env.VITE_API_URL}/issue/comment/${issueId}`,
         { text: comment },
@@ -42,6 +46,8 @@ const IssueOpen = () => {
     } catch (err) {
       toast.error(err?.response?.data?.error || "Failed to add comment");
       console.log(err);
+    } finally {
+      setLoadingButtons(prev => ({ ...prev, [buttonKey]: false }));
     }
   };
 
@@ -87,7 +93,9 @@ const IssueOpen = () => {
 
   // Close issue
   const handleCloseIssue = async () => {
+    const buttonKey = "closeIssue";
     try {
+      setLoadingButtons(prev => ({ ...prev, [buttonKey]: true }));
       const res = await axios.put(
         `${import.meta.env.VITE_API_URL}/issue/close/${issueId}`,
         {},
@@ -100,6 +108,8 @@ const IssueOpen = () => {
     } catch (err) {
       toast.error(err?.response?.data?.error || "Failed to close issue");
       console.log(err);
+    } finally {
+      setLoadingButtons(prev => ({ ...prev, [buttonKey]: false }));
     }
   };
 
@@ -153,12 +163,13 @@ const IssueOpen = () => {
   // Delete issue
   const handleDeleteIssue = async () => {
     // if (!window.confirm("Are you sure you want to delete this issue?")) return;
-
+ const buttonKey = "deleteIssue";
     const ok = await confirmDelete();
 
     if (!ok) return;
 
     try {
+      setLoadingButtons(prev => ({ ...prev, [buttonKey]: true }));
       const res = await axios.delete(`${import.meta.env.VITE_API_URL}/issue/delete/${issueId}`, {
         headers: { userid: userId },
       });
@@ -168,6 +179,8 @@ const IssueOpen = () => {
     } catch (err) {
       toast.error(err?.response?.data?.error || "Failed to delete issue");
       console.log(err);
+    } finally {
+      setLoadingButtons(prev => ({ ...prev, [buttonKey]: false }));
     }
   };
 
@@ -212,13 +225,13 @@ const IssueOpen = () => {
                     Edit
                   </button>
                 </Link>
-
-                <button
+                 <button
                   onClick={handleDeleteIssue}
+                  disabled={loadingButtons["deleteIssue"]}
                   className="btn-red-QUIOP"
                   style={{ marginLeft: "10px" }}
                 >
-                  Delete
+                  {loadingButtons["deleteIssue"] ? "Deleting..." : "Delete"}
                 </button>
               </>
             )}
@@ -303,8 +316,10 @@ const IssueOpen = () => {
                 });
 
               const handleUpdate = async () => {
+                 const buttonKey = `updateComment-${c._id}`;
                 if (!editText.trim()) return;
                 try {
+                   setLoadingButtons(prev => ({ ...prev, [buttonKey]: true }));
                   const res = await axios.put(
                     `${import.meta.env.VITE_API_URL}/issue/${issueId}/comment/${c?._id}`,
                     { text: editText },
@@ -317,15 +332,19 @@ const IssueOpen = () => {
                   toast.success("Updated comment successfully");
                 } catch (err) {
                   toast.error(err?.response?.data?.error || "Failed to update comment");
-                }
+                } finally {
+      setLoadingButtons(prev => ({ ...prev, [buttonKey]: false }));
+    }
               };
 
               const handleDelete = async () => {
+                  const buttonKey = `deleteComment-${c._id}`;
                 const ok = await confirmDelete();
 
                 if (!ok) return;
 
                 try {
+                  setLoadingButtons(prev => ({ ...prev, [buttonKey]: true }));
                   const res = await axios.delete(
                     `${import.meta.env.VITE_API_URL}/issue/${issueId}/comment/${c?._id}`,
                     { headers: { userid: userId } }
@@ -334,7 +353,9 @@ const IssueOpen = () => {
                   toast.success("Comment deleted successfully");
                 } catch (err) {
                   toast.error(err?.response?.data?.error || "Failed to delete comment");
-                }
+                } finally {
+      setLoadingButtons(prev => ({ ...prev, [buttonKey]: false }));
+    }
               };
 
               return (
@@ -346,18 +367,19 @@ const IssueOpen = () => {
                     </div>
                     {isMyComment && !isEditing && (
                       <div className="DIVDI_OPOPOP" style={{ marginTop: "5px" }}>
-                        <button
+                         <button
                           className="btn-secondary-QUIOP"
-                          onClick={() => {
-                            setEditingCommentId(c?._id);
-                            setEditText(c?.text);
-                          }}
-                          style={{ marginRight: "5px" }}
+                          onClick={() => { setEditingCommentId(c?._id); setEditText(c?.text); }}
+                          disabled={loadingButtons[`updateComment-${c._id}`]}
                         >
-                          Edit
+                          {loadingButtons[`updateComment-${c._id}`] ? "Saving..." : "Edit"}
                         </button>
-                        <button className="btn-red-QUIOP" onClick={handleDelete}>
-                          Delete
+                        <button
+                          className="btn-red-QUIOP"
+                          onClick={handleDelete}
+                          disabled={loadingButtons[`deleteComment-${c._id}`]}
+                        >
+                          {loadingButtons[`deleteComment-${c._id}`] ? "Deleting..." : "Delete"}
                         </button>
                       </div>
                     )}
@@ -377,8 +399,9 @@ const IssueOpen = () => {
                         <button
                           className="btn-secondary-QUIOP"
                           onClick={handleUpdate}
+                          disabled={loadingButtons[`updateComment-${c._id}`]}
                         >
-                          Save
+                          {loadingButtons[`updateComment-${c._id}`] ? "Saving..." : "Save"}
                         </button>
                         <button
                           className="btn-red-QUIOP"
@@ -408,20 +431,21 @@ const IssueOpen = () => {
               />
 
               <div className="comment-actions-QUIOP">
+
                 <button
                   className="btn-secondary-QUIOP"
                   onClick={handleCloseIssue}
-                  disabled={!isMine || issue?.status === "closed"}
+                  disabled={!isMine || issue?.status === "closed" || loadingButtons["closeIssue"]}
                 >
-                  Close issue
+                  {loadingButtons["closeIssue"] ? "Closing..." : "Close issue"}
                 </button>
 
                 <button
                   className="btn-green-QUIOP"
                   onClick={handleAddComment}
-                  disabled={issue?.status === "closed"}
+                  disabled={issue?.status === "closed" || loadingButtons["addComment"]}
                 >
-                  Comment
+                  {loadingButtons["addComment"] ? "Adding..." : "Comment"}
                 </button>
               </div>
             </div>
