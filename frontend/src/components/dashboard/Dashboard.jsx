@@ -115,7 +115,7 @@ const Dashboard = () => {
 
     const fetchSuggestedRepositories = async () => {
       try {
-        setLoading(true);
+        // setLoading(true);
         const response = await fetch(`${import.meta.env.VITE_API_URL}/repo/all`);
         const data = await response.json();
         setSuggestedRepositories(Array.isArray(data?.repositories) ? data?.repositories : []);
@@ -123,7 +123,7 @@ const Dashboard = () => {
         console.error("Error While fetching repositories:", error);
         toast.error(error?.message);
       } finally {
-        setTimeout(() => setLoading(false), 600);
+        // setTimeout(() => setLoading(false), 600);
       }
     };
     fetchRepositories();
