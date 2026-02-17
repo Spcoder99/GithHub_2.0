@@ -73,6 +73,7 @@ const Dashboard = () => {
 
     const fetchStarredRepos = async () => {
       try {
+        setLoading(true);
         const res = await fetch(`${import.meta.env.VITE_API_URL}/userProfile/${userId}`);
         const data = await res.json();
         const starredIds =
@@ -81,6 +82,8 @@ const Dashboard = () => {
       } catch (err) {
         toast.error(err?.response?.data?.error || "Failed to fetch starred repos");
         console.error("Failed to fetch starred repos", err);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -103,15 +106,14 @@ const Dashboard = () => {
         console.error("Error While fetching repositories:", error);
         toast.error(error?.message || "Failed to fetch repositories");
       } finally {
-        setLoading(false);
-        // setTimeout(() => setLoading(false), 600);
+        // setLoading(false);
+        setTimeout(() => setLoading(false), 600);
         
       }
     };
 
     const fetchSuggestedRepositories = async () => {
       try {
-        
         const response = await fetch(`${import.meta.env.VITE_API_URL}/repo/all`);
         const data = await response.json();
         setSuggestedRepositories(Array.isArray(data?.repositories) ? data?.repositories : []);
