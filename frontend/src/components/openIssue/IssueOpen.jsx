@@ -72,11 +72,14 @@ const IssueOpen = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
+        setLoading(true)
         const res = await axios.get(`${import.meta.env.VITE_API_URL}/userProfile/${userId}`);
         setUser(res?.data?.user);
       } catch (err) {
         toast.error(err?.response?.data?.error || "Failed to fetch user");
         console.error(err);
+      } finally {
+        setLoading(false);
       }
     };
     fetchUser();
