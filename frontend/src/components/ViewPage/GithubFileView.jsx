@@ -51,7 +51,7 @@ export default function GithubFileView() {
         console.error("Error fetching repo:", err);
       } finally {
         // setLoading(false);
-        setTimeout(() => setLoading(false), 600);
+        setTimeout(() => setLoading(false), 500);
       }
     };
     fetchRepo();
@@ -88,7 +88,8 @@ export default function GithubFileView() {
         console.error("Error fetching file content:", err);
         setContent("// Unable to load file");
       } finally {
-        setLoading(false);
+        // setLoading(false);
+         setTimeout(() => setLoading(false), 500);
       }
     };
 
