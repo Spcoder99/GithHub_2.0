@@ -21,6 +21,8 @@ const EditIssue = () => {
   const [editingCommentId, setEditingCommentId] = useState(null);
   const [editText, setEditText] = useState("");
 
+   const [loadingButtons, setLoadingButtons] = useState({});
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -58,7 +60,9 @@ const EditIssue = () => {
   };
 
   const handleUpdate = async () => {
+    const key = "updateIssue";
     try {
+       setLoadingButtons(prev => ({ ...prev, [key]: true }));
       const res = await axios.put(
         `${import.meta.env.VITE_API_URL}/issue/update/${issueId}`,
         { title, description, status: issue.status },
@@ -71,11 +75,15 @@ const EditIssue = () => {
     } catch (err) {
       console.log(err);
       toast.error(err?.response?.data?.error || "Failed to update issue");
+    } finally {
+      setLoadingButtons(prev => ({ ...prev, [key]: false }));
     }
   };
 
   const handleCloseIssue = async () => {
+     const key = "closeIssue";
     try {
+        setLoadingButtons(prev => ({ ...prev, [key]: true }));
       const res = await axios.put(
         `${import.meta.env.VITE_API_URL}/issue/close/${issueId}`,
         {},
@@ -88,13 +96,17 @@ const EditIssue = () => {
     } catch (err) {
       toast.error(err?.response?.data?.error || "Failed to close issue");
       console.log(err);
+    } finally {
+      setLoadingButtons(prev => ({ ...prev, [key]: false }));
     }
   };
 
   const handleAddComment = async () => {
     if (!comment.trim()) return;
+    const key = "addComment";
 
     try {
+      setLoadingButtons(prev => ({ ...prev, [key]: true }));
       const res = await axios.post(
         `${import.meta.env.VITE_API_URL}/issue/comment/${issueId}`,
         { text: comment },
@@ -107,13 +119,17 @@ const EditIssue = () => {
     } catch (err) {
       console.log(err);
       toast.error(err?.response?.data?.error || "Failed to add comment");
+    }  finally {
+      setLoadingButtons(prev => ({ ...prev, [key]: false }));
     }
   };
 
   // ✅ Update a comment
   const handleUpdateComment = async (commentId) => {
     if (!editText.trim()) return;
+    const key = `updateComment-${commentId}`;
     try {
+        setLoadingButtons(prev => ({ ...prev, [key]: true }));
       const res = await axios.put(
         `${import.meta.env.VITE_API_URL}/issue/${issueId}/comment/${commentId}`,
         { text: editText },
@@ -126,6 +142,8 @@ const EditIssue = () => {
     } catch (err) {
       console.error(err);
       toast.error(err?.response?.data?.error || "Failed to update comment");
+    } finally {
+      setLoadingButtons(prev => ({ ...prev, [key]: false }));
     }
   };
 
@@ -176,11 +194,13 @@ const EditIssue = () => {
 
   // ✅ Delete a comment
   const handleDeleteComment = async (commentId) => {
+    const key = `deleteComment-${commentId}`;
    const ok = await confirmDelete();
 
     if (!ok) return;
 
     try {
+       setLoadingButtons(prev => ({ ...prev, [key]: true }));
       const res = await axios.delete(
         `${import.meta.env.VITE_API_URL}/issue/${issueId}/comment/${commentId}`,
         { headers: { userid: userId } }
@@ -190,6 +210,8 @@ const EditIssue = () => {
     } catch (err) {
       console.error(err);
       toast.error(err?.response?.data?.error || "Failed to delete comment");
+    } finally {
+      setLoadingButtons(prev => ({ ...prev, [key]: false }));
     }
   };
 
@@ -226,8 +248,12 @@ const EditIssue = () => {
             disabled={!isMine}
           />
           <div className="div-IPHONE">
-            <button onClick={handleUpdate} className="btn-green-IPHONE">
-              Save
+            <button
+              onClick={handleUpdate}
+              className="btn-green-IPHONE"
+              disabled={loadingButtons["updateIssue"]}
+            >
+              {loadingButtons["updateIssue"] ? "Saving..." : "Save"}
             </button>
             <button onClick={handleClose} className="btn-secondary-IPHONE">
               Cancel
@@ -284,14 +310,16 @@ const EditIssue = () => {
                             setEditText(c?.text);
                           }}
                           style={{ marginRight: "5px" }}
+                          disabled={loadingButtons[`updateComment-${c._id}`]}
                         >
-                          Edit
+                          {loadingButtons[`updateComment-${c._id}`] ? "Saving..." : "Edit"}
                         </button>
                         <button
                           className="btn-red-IPHONE"
                           onClick={() => handleDeleteComment(c?._id)}
+                          disabled={loadingButtons[`deleteComment-${c._id}`]}
                         >
-                          Delete
+                          {loadingButtons[`deleteComment-${c._id}`] ? "Deleting..." : "Delete"}
                         </button>
                       </div>
                     )}
@@ -309,11 +337,12 @@ const EditIssue = () => {
                           value={editText}
                           onChange={(e) => setEditText(e.target.value)}
                         />
-                        <button
+                         <button
                           className="btn-secondary-IPHONE"
                           onClick={() => handleUpdateComment(c?._id)}
+                          disabled={loadingButtons[`updateComment-${c._id}`]}
                         >
-                          Save
+                          {loadingButtons[`updateComment-${c._id}`] ? "Saving..." : "Save"}
                         </button>
                         <button
                           className="btn-red-IPHONE"
@@ -342,17 +371,17 @@ const EditIssue = () => {
                 <button
                   className="btn-secondary-IPHONE"
                   onClick={handleCloseIssue}
-                  disabled={!isMine || issue?.status === "closed"}
+                  disabled={!isMine || issue?.status === "closed" || loadingButtons["closeIssue"]}
                 >
-                  Close issue
+                  {loadingButtons["closeIssue"] ? "Closing..." : "Close issue"}
                 </button>
 
                 <button
                   className="btn-green-IPHONE"
                   onClick={handleAddComment}
-                  disabled={issue?.status === "closed"}
+                  disabled={issue?.status === "closed" || loadingButtons["addComment"]}
                 >
-                  Comment
+                  {loadingButtons["addComment"] ? "Adding..." : "Comment"}
                 </button>
               </div>
             </div>
