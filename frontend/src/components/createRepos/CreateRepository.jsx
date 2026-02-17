@@ -97,11 +97,12 @@ export default function CreateRepository() {
   };
 
   if (loading) return <p>Loading...</p>;
-  if (!user) return <p>No user found</p>;
+  // if (!user) return <p>No user found</p>;
 
   return (
     <>
       {/* <Navbar /> */}
+      
       <div className="pageKL">
         <div className="containerKL">
           <h1 className="h1kl">Create a new repository</h1>
