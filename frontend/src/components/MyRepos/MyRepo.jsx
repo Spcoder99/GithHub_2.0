@@ -114,7 +114,8 @@ const MyRepo = () => {
     } catch (err) {
       console.error(err);
     } finally {
-      setLoading(false);
+      // setLoading(false);
+      setTimeout(() => setLoading(false), 500);
     }
   };
 
@@ -144,8 +145,8 @@ const MyRepo = () => {
         console.error("Error while fetching repositories:", error);
         toast.error(error?.message||"Failed to fetch repositories");
       } finally {
-        setLoading(false);
-        // setTimeout(() => setLoading(false), 300);
+        // setLoading(false);
+        setTimeout(() => setLoading(false), 500);
         
       }
     };
@@ -233,6 +234,7 @@ const MyRepo = () => {
   useEffect(() => {
     const fetchStarredRepos = async () => {
       try {
+        setLoading(true)
         const userId = localStorage.getItem("userId");
         const res = await fetch(`${import.meta.env.VITE_API_URL}/userProfile/${userId}`);
         const data = await res.json();
@@ -242,6 +244,8 @@ const MyRepo = () => {
       } catch (err) {
         console.error("Failed to fetch starred repos", err);
         toast.error(err?.response?.data?.error || "Failed to fetch starred repos");
+      } finally {
+        setLoading(false);
       }
     };
     fetchStarredRepos();
