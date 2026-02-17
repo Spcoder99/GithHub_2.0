@@ -99,13 +99,15 @@ const ProfilePage = () => {
 
   const fetchProfile = async () => {
     try {
+      setLoading(true);
       const res = await fetch(`${import.meta.env.VITE_API_URL}/userProfile/${profileId}`);
       const data = await res.json();
       setUser(data);
     } catch (err) {
       toast.error(err?.response?.data?.error || "Failed to fetch profile");
       console.error(err);
-    }
+    } finally {
+      setLoading(false);
   };
 
   useEffect(() => {
@@ -356,7 +358,7 @@ const ProfilePage = () => {
   };
 
 
-  if (!user) return <div>Loading...</div>;
+  // if (!user) return <div>Loading...</div>;
 
   return (
     <>
