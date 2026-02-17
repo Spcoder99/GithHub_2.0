@@ -181,8 +181,8 @@ export default function GithubFileView() {
           </div>
 
           <div className="commit-rightCHUTH">
-            <span>cb82516</span>
-            <span>· 2 years ago</span>
+           <span>{repo[0]?.files[0]?._id?.slice(0, 5)}</span>
+            <span>{new Date(repo[0]?.files[0]?.uploadedAt).toLocaleDateString()}</span>
             <History size={14} />
           </div>
         </div>
