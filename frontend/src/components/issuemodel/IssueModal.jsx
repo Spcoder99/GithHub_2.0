@@ -33,7 +33,7 @@ export default function IssueModal({ onClose }) {
         toast.error(error?.response?.data?.message || "Failed to fetch repositories");
         console.log(error?.response);
       } finally {
-         setTimeout(() => setLoading(false), 300);
+         setTimeout(() => setLoading(false), 600);
       }
     };
 
@@ -54,6 +54,7 @@ export default function IssueModal({ onClose }) {
   return (
     <>
       {/* <Navbar/> */}
+      {loading &&
       <div className="gh-overlayMAHAKAL">
         <div className="gh-modalMAHAKAL">
           {/* Header */}
@@ -140,7 +141,7 @@ export default function IssueModal({ onClose }) {
             <Link to="/createIssue" state={{ repo: selectedRepo }} style={{textDecoration: "none"}}><ArrowRight size={18} /></Link>
           </div>
         </div>
-      </div>
+      </div>}
       {/* <GithubFooter /> */}
     </>
 
