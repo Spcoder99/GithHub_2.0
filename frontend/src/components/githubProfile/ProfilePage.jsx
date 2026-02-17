@@ -129,7 +129,7 @@ const ProfilePage = () => {
         toast.error(err?.response?.data?.error || "Failed to fetch starred repos");
         console.error("Failed to fetch starred repos", err);
       } finally {
-        setLoading(false);
+        setTimeout(() => setLoading(false), 500);
       }
     };
     fetchStarredRepos();
