@@ -18,7 +18,6 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import TerminalLoader from "../Loader/TerminalLoader";
 import "./myrepo.css";
 
-
 const MyRepo = () => {
   const [repositories, setRepositories] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
