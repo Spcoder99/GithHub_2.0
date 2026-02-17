@@ -28,6 +28,8 @@ const MyRepo = () => {
   const { id } = useParams(); // URL se
   const myId = localStorage.getItem("userId"); // login user
 
+   const [loadingButtons, setLoadingButtons] = useState({}); // ✅ NEW
+
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [selectedRepoId, setSelectedRepoId] = useState(null);
   const [deletePassword, setDeletePassword] = useState("");
@@ -167,6 +169,8 @@ const MyRepo = () => {
     try {
       // setLoading(true);
 
+      setLoadingButtons((prev) => ({ ...prev, [`visibility-${repoId}`]: true }));
+
       const res = await fetch(
         `${import.meta.env.VITE_API_URL}/repo/toggle/${repoId}`,
         { method: "PATCH" }
@@ -200,7 +204,7 @@ const MyRepo = () => {
       console.error(err);
       toast.error(err?.message||"Toggle failed");
     } finally {
-      // setLoading(false);
+      setLoadingButtons((prev) => ({ ...prev, [`visibility-${repoId}`]: false }));
     }
   };
 
@@ -246,6 +250,7 @@ const MyRepo = () => {
 
   const handleToggleStar = async (repoId) => {
     try {
+    setLoadingButtons((prev) => ({ ...prev, [`star-${repoId}`]: true }));
       const userId = localStorage.getItem("userId");
 
       const res = await fetch(`${import.meta.env.VITE_API_URL}/toggleStar`, {
@@ -277,6 +282,8 @@ const MyRepo = () => {
     } catch (err) {
       console.error(err);
       toast.error( err?.response?.data?.error||"Failed to update star");
+    } finally {
+      setLoadingButtons((prev) => ({ ...prev, [`star-${repoId}`]: false }));
     }
   };
 
@@ -435,13 +442,20 @@ const MyRepo = () => {
                             "#f87171",
                           color: "black",
                         }}
+                         disabled={loadingButtons[`star-${repo._id}`]}
                       >
+                         {loadingButtons[`star-${repo._id}`] ? "Loading..." : starredRepoIds.includes(repo._id.toString()) ? 
+                        <>
                         <svg viewBox="0 0 16 16" aria-hidden="true">
                           <path d="M8 12.027l-4.472 2.353.854-4.98L1.18 5.97l5.013-.728L8 1.25l1.807 3.992 5.013.728-3.202 3.43.854 4.98z" />
                         </svg>
-                        {starredRepoIds?.includes(repo?._id.toString())
-                          ? "Unstar"
-                          : "Star"}
+                          Unstar
+                         </> : <>
+                         <svg viewBox="0 0 16 16" aria-hidden="true">
+                          <path d="M8 12.027l-4.472 2.353.854-4.98L1.18 5.97l5.013-.728L8 1.25l1.807 3.992 5.013.728-3.202 3.43.854 4.98z" />
+                        </svg>
+                           Star
+                         </>}
                       </button>
                     </div>
                   </div>
@@ -513,8 +527,11 @@ const MyRepo = () => {
                         borderRadius: "10px",
                         opacity: "0.8"
                       }}
+                      disabled={loadingButtons[`visibility-${repo._id}`]}
                     >
-                      {repo?.visibility ? "Private" : "Public"}
+                      {loadingButtons[`visibility-${repo._id}`]
+                        ? "Loading..."
+                        : repo.visibility ? "Private" : "Public"}
                     </button>
                   </div>
                 </div>
