@@ -24,14 +24,17 @@ export default function AddFile() {
   const [repo, setRepo] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const [loadingButtons, setLoadingButtons] = useState({}); // ✅ per-button loading
 
 
   const handleCommit = async () => {
+     const key = "commitFile";
     try {
       if (!fileName.trim()) {
         toast.error("File name is required");
         return;
       }
+      setLoadingButtons((prev) => ({ ...prev, [key]: true }));
       const formData = new FormData();
       const file = new File([content], fileName); // fileName can be "folder1/folder2/myfile.txt" if you want folders
       formData.append("file", file);
@@ -50,6 +53,8 @@ export default function AddFile() {
     } catch (error) {
       console.log(error);
       toast.error(error?.message || "Failed to commit file");
+    } finally {
+      setLoadingButtons((prev) => ({ ...prev, [key]: false }));
     }
 
 
@@ -113,8 +118,12 @@ export default function AddFile() {
 
             <div className="breadcrumb-actions">
               <button className="btn secondary" onClick={() => navigate(-1)}>Cancel changes</button>
-              <button className="btn primary" onClick={handleCommit} disabled={!fileName?.trim()}>
-                Commit changes…
+               <button
+                className="btn primary"
+                onClick={handleCommit}
+                disabled={!fileName?.trim() || loadingButtons["commitFile"]}
+              >
+                {loadingButtons["commitFile"] ? "Committing..." : "Commit changes…"}
               </button>
             </div>
           </div>
