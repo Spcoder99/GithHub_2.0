@@ -60,8 +60,8 @@ const IssueOpen = () => {
         toast.error(err?.response?.data?.error || "Failed to fetch issue");
         console.error("Error fetching issue:", err);
       } finally {
-        // setLoading(false);
-        setTimeout(() => setLoading(false), 600);
+        setLoading(false);
+        // setTimeout(() => setLoading(false), 600);
       }
     };
 
