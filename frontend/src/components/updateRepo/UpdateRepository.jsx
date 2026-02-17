@@ -42,6 +42,7 @@ const navigate = useNavigate();
       return;
     }
     try {
+       setButtonLoading(true); // ✅ start button loading
       const res = await axios.put(
         `${import.meta.env.VITE_API_URL}/repo/update/${repoId}`,
         {
@@ -56,6 +57,8 @@ const navigate = useNavigate();
       console.error(err);
       toast.error(err?.response?.data?.error || "Failed to update repository");
       setMessage("Failed to update repository.");
+    } finally {
+      setButtonLoading(false); // ✅ stop button loading
     }
   };
 
@@ -87,7 +90,9 @@ const navigate = useNavigate();
               placeholder="Enter repository description"
             />
           </label>
-          <button type="submit">Update Repository</button>
+           <button type="submit" disabled={buttonLoading}>
+            {buttonLoading ? "Updating..." : "Update Repository"}
+          </button>
         </form>
       </div></>
   );
