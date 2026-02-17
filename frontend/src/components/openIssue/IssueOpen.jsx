@@ -168,7 +168,7 @@ const IssueOpen = () => {
     }
   };
 
-  if (!issue) return <div>Issue not found</div>;
+  // if (!issue) return <div>Issue not found</div>;
 
   return (
     <>
