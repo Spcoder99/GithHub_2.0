@@ -128,7 +128,7 @@ const MyRepo = () => {
     const fetchRepositories = async () => {
       try {
         // अगर profileId है तो वही, नहीं तो मेरी id
-        setLoading(true);
+        // setLoading(true);
         const idToUse = profileId ? profileId : userId;
 
         const response = await fetch(
@@ -143,7 +143,7 @@ const MyRepo = () => {
         console.error("Error while fetching repositories:", error);
         toast.error(error?.message||"Failed to fetch repositories");
       } finally {
-        setLoading(false);
+        // setLoading(false);
         // setTimeout(() => setLoading(false), 600);
         
       }
@@ -165,7 +165,7 @@ const MyRepo = () => {
 
   const handleToggleVisibility = async (repoId) => {
     try {
-      setLoading(true);
+      // setLoading(true);
 
       const res = await fetch(
         `${import.meta.env.VITE_API_URL}/repo/toggle/${repoId}`,
@@ -200,7 +200,7 @@ const MyRepo = () => {
       console.error(err);
       toast.error(err?.message||"Toggle failed");
     } finally {
-      setLoading(false);
+      // setLoading(false);
     }
   };
 
