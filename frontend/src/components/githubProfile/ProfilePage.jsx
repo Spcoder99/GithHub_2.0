@@ -110,13 +110,15 @@ const ProfilePage = () => {
       toast.error(err?.response?.data?.error || "Failed to fetch profile");
       console.error(err);
     } finally {
-      setLoading(false);
+      // setLoading(false);
+      setTimeout(() => setLoading(false), 500);
     }
   };
 
   useEffect(() => {
     const fetchStarredRepos = async () => {
       try {
+        setLoading(true)
         const userId = localStorage.getItem("userId");
         const res = await fetch(`${import.meta.env.VITE_API_URL}/userProfile/${userId}`);
         const data = await res.json();
@@ -126,6 +128,8 @@ const ProfilePage = () => {
       } catch (err) {
         toast.error(err?.response?.data?.error || "Failed to fetch starred repos");
         console.error("Failed to fetch starred repos", err);
+      } finally {
+        setLoading(false);
       }
     };
     fetchStarredRepos();
@@ -228,8 +232,8 @@ const ProfilePage = () => {
         console.error("Error while fetching repositories:", error);
         toast.error( error?.message ||"Failed to fetch repositories");
       } finally {
-        setLoading(false);
-        // setTimeout(() => setLoading(false), 600);
+        // setLoading(false);
+        setTimeout(() => setLoading(false), 500);
       }
     };
 
