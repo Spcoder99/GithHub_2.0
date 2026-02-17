@@ -243,7 +243,7 @@ const IssueOpen = () => {
             {/* Issue description */}
             <div className="comment-card-QUIOP">
               <div className="comment-header-QUIOP">
-                <strong>{issue.authorName || "Unknown"}</strong>
+                <strong>{issue?.authorName || "Unknown"}</strong>
                 <span className="light-text-QUIOP">
                   opened on {new Date(issue?.createdAt).toLocaleDateString()}
                 </span>
@@ -429,11 +429,11 @@ const IssueOpen = () => {
 
           {/* Sidebar */}
           <div className="right-section-QUIOP">
-            <SidebarItem title="Assignees" value={issue.assignees || "No one assigned"} />
-            <SidebarItem title="Labels" value={issue.labels || "No labels"} />
-            <SidebarItem title="Projects" value={issue.projects || "No projects"} />
-            <SidebarItem title="Milestone" value={issue.milestone || "No milestone"} />
-            <SidebarItem title="Relationships" value={issue.relationships || "None yet"} />
+            <SidebarItem title="Assignees" value={issue?.assignees || "No one assigned"} />
+            <SidebarItem title="Labels" value={issue?.labels || "No labels"} />
+            <SidebarItem title="Projects" value={issue?.projects || "No projects"} />
+            <SidebarItem title="Milestone" value={issue?.milestone || "No milestone"} />
+            <SidebarItem title="Relationships" value={issue?.relationships || "None yet"} />
           </div>
         </div>
       </div>
