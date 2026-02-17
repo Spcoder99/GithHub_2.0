@@ -245,7 +245,8 @@ const MyRepo = () => {
         console.error("Failed to fetch starred repos", err);
         toast.error(err?.response?.data?.error || "Failed to fetch starred repos");
       } finally {
-        setLoading(false);
+        // setLoading(false);
+        setTimeout(() => setLoading(false), 500);
       }
     };
     fetchStarredRepos();
