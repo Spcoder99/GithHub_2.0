@@ -442,9 +442,9 @@ const MyRepo = () => {
                             "#f87171",
                           color: "black",
                         }}
-                         disabled={loadingButtons[`star-${repo._id}`]}
+                         disabled={loadingButtons[`star-${repo?._id}`]}
                       >
-                         {loadingButtons[`star-${repo._id}`] ? "Loading..." : starredRepoIds.includes(repo._id.toString()) ? 
+                         {loadingButtons[`star-${repo?._id}`] ? "Loading..." : starredRepoIds.includes(repo?._id.toString()) ? 
                         <>
                         <svg viewBox="0 0 16 16" aria-hidden="true">
                           <path d="M8 12.027l-4.472 2.353.854-4.98L1.18 5.97l5.013-.728L8 1.25l1.807 3.992 5.013.728-3.202 3.43.854 4.98z" />
@@ -527,11 +527,11 @@ const MyRepo = () => {
                         borderRadius: "10px",
                         opacity: "0.8"
                       }}
-                      disabled={loadingButtons[`visibility-${repo._id}`]}
+                      disabled={loadingButtons[`visibility-${repo?._id}`]}
                     >
-                      {loadingButtons[`visibility-${repo._id}`]
+                      {loadingButtons[`visibility-${repo?._id}`]
                         ? "Loading..."
-                        : repo.visibility ? "Private" : "Public"}
+                        : repo?.visibility ? "Private" : "Public"}
                     </button>
                   </div>
                 </div>
