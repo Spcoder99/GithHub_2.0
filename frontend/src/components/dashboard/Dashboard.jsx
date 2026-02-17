@@ -102,7 +102,7 @@ const Dashboard = () => {
         console.error("Error While fetching repositories:", error);
         toast.error(error?.message || "Failed to fetch repositories");
       } finally {
-        setLoading(false);/
+        setLoading(false);
         // setTimeout(() => setLoading(false), 600);
         
       }
