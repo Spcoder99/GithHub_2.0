@@ -50,7 +50,8 @@ export default function EditFile() {
         toast.error(err?.response?.data?.error || "Failed to fetch repo or file");
       } finally {
         // setLoading(false);
-        setLoading(false)
+        // setLoading(false)
+             setTimeout(() => setLoading(false), 600);
       }
     };
 
