@@ -250,7 +250,7 @@ const Dashboard = () => {
 
   const handleToggleVisibility = async (repoId) => {
     try {
-      setLoadingButtons((prev) => ({ ...prev, [`visibility-${repoId}`]: true })); /
+      setLoadingButtons((prev) => ({ ...prev, [`visibility-${repoId}`]: true })); 
       const res = await fetch(`${import.meta.env.VITE_API_URL}/repo/toggle/${repoId}`, {
         method: "PATCH",
       });
