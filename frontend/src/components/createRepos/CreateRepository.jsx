@@ -10,6 +10,7 @@ import { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import "./CreateRepository.css";
+import TerminalLoader from "../Loader/TerminalLoader";
 
 export default function CreateRepository() {
   const [repoName, setRepoName] = useState("");
@@ -96,12 +97,13 @@ export default function CreateRepository() {
     }
   };
 
-  if (loading) return <p>Loading...</p>;
+  // if (loading) return <p>Loading...</p>;
   // if (!user) return <p>No user found</p>;
 
   return (
     <>
       {/* <Navbar /> */}
+      {loading && <TerminalLoader/>}
       
       <div className="pageKL">
         <div className="containerKL">
