@@ -254,7 +254,7 @@ const IssueOpen = () => {
             </div>
 
             {/* Comments */}
-            {issue.comments?.map((c) => {
+            {issue?.comments?.map((c) => {
               const isMyComment = c?.user === userId;
               const isEditing = editingCommentId === c?._id;
 
@@ -310,13 +310,13 @@ const IssueOpen = () => {
                     { text: editText },
                     { headers: { userid: userId } }
                   );
-                  setIssue(res.data.issue);
+                  setIssue(res?.data?.issue);
                   setEditingCommentId(null);
 
                   setEditText("");
                   toast.success("Updated comment successfully");
                 } catch (err) {
-                  toast.error(err.response?.data?.error || "Failed to update comment");
+                  toast.error(err?.response?.data?.error || "Failed to update comment");
                 }
               };
 
@@ -333,7 +333,7 @@ const IssueOpen = () => {
                   setIssue(res?.data?.issue);
                   toast.success("Comment deleted successfully");
                 } catch (err) {
-                  toast.error(err.response?.data?.error || "Failed to delete comment");
+                  toast.error(err?.response?.data?.error || "Failed to delete comment");
                 }
               };
 
