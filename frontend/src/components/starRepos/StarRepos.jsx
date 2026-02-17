@@ -109,7 +109,8 @@ const StarRepo = () => {
     } catch (err) {
       console.error(err);
     } finally {
-      setLoading(false)
+      // setLoading(false)
+      setTimeout(() => setLoading(false), 500);
     }
   };
 
@@ -141,7 +142,7 @@ const StarRepo = () => {
         toast.error( error?.response?.data?.error||"Failed to fetch starred repositories");
       } finally {
         setLoading(false);
-        // setTimeout(() => setLoading(false), 600);
+        // setTimeout(() => setLoading(false), 500);
       }
     };
 
