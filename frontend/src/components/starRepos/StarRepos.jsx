@@ -25,6 +25,8 @@ const StarRepo = () => {
   const [starredRepoIds, setStarredRepoIds] = useState([]);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [loadingButtons, setLoadingButtons] = useState({}); // ✅ NEW
+
   // const { id } = useParams();
   const myId = localStorage.getItem("userId");
   const profileId = myId;
@@ -138,8 +140,8 @@ const StarRepo = () => {
         console.error(error);
         toast.error( error?.response?.data?.error||"Failed to fetch starred repositories");
       } finally {
-        // setLoading(false);
-        setTimeout(() => setLoading(false), 600);
+        setLoading(false);
+        // setTimeout(() => setLoading(false), 600);
       }
     };
 
@@ -171,6 +173,7 @@ const StarRepo = () => {
   // ================= TOGGLE STAR =================
   const handleToggleStar = async (repoId) => {
     try {
+      setLoadingButtons((prev) => ({ ...prev, [`star-${repoId}`]: true }));
       const res = await fetch(`${import.meta.env.VITE_API_URL}/toggleStar`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -187,12 +190,15 @@ const StarRepo = () => {
     } catch (err) {
       console.error(err);
       toast.error( err?.response?.data?.error||"Failed to update star");
+    } finally {
+      setLoadingButtons((prev) => ({ ...prev, [`star-${repoId}`]: false })); // ✅ STOP BUTTON LOADING
     }
   };
 
   const handleToggleVisibility = async (repoId) => {
     try {
-      setLoading(true);
+      // setLoading(true);
+       setLoadingButtons((prev) => ({ ...prev, [`visibility-${repoId}`]: true })); // 
 
       const res = await fetch(
         `${import.meta.env.VITE_API_URL}/repo/toggle/${repoId}`,
@@ -227,7 +233,8 @@ const StarRepo = () => {
       console.error(err);
       toast.error( err?.response?.data?.error||"Toggle failed");
     } finally {
-      setLoading(false);
+      setLoadingButtons((prev) => ({ ...prev, [`visibility-${repoId}`]: false })); // ✅ STOP BUTTON LOADING
+      // setLoading(false);
     }
   };
 
@@ -366,6 +373,7 @@ const StarRepo = () => {
                     </Link>
 
                     <div className="star-btn-group1JKLPPOPOIUT">
+                      
                       <button
                         className="star-btn1"
                         onClick={() => handleToggleStar(repo?._id)}
@@ -373,11 +381,16 @@ const StarRepo = () => {
                           backgroundColor: "#f87171",
                           color: "black",
                         }}
+                        disabled={loadingButtons[`star-${repo?._id}`]}
                       >
-                        <svg viewBox="0 0 16 16">
-                          <path d="M8 12.027l-4.472 2.353.854-4.98L1.18 5.97l5.013-.728L8 1.25l1.807 3.992 5.013.728-3.202 3.43.854 4.98z" />
-                        </svg>
-                        Unstar
+                        {loadingButtons[`star-${repo?._id}`] ? "Loading..." : (
+                          <>
+                            <svg viewBox="0 0 16 16">
+                              <path d="M8 12.027l-4.472 2.353.854-4.98L1.18 5.97l5.013-.728L8 1.25l1.807 3.992 5.013.728-3.202 3.43.854 4.98z" />
+                            </svg>
+                            Unstar
+                          </>
+                        )}
                       </button>
                     </div>
                   </div>
@@ -428,21 +441,24 @@ const StarRepo = () => {
                           Delete
                         </button>
 
+                     
                         <button
                           className="star-btn1JKLPPOPOIUT KRUNAL_PANDYA"
                           onClick={() => handleToggleVisibility(repo?._id)}
                           style={{
                             backgroundColor: repo?.visibility ? "#6b7280" : "#238636",
                             color: "white",
-                            // marginLeft: "5px",
                             border: "2px double black",
                             borderRadius: "10px",
-                            // position: "relative",
-                            // right: "0px",
-                            opacity: "0.8"
+                            opacity: "0.8",
                           }}
+                          disabled={loadingButtons[`visibility-${repo?._id}`]}
                         >
-                          {repo?.visibility ? "Private" : "Public"}
+                          {loadingButtons[`visibility-${repo?._id}`]
+                            ? "Loading..."
+                            : repo?.visibility
+                              ? "Private"
+                              : "Public"}
                         </button>
 
                       </> : ""
