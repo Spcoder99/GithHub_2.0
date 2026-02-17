@@ -24,6 +24,8 @@ export default function CreateIssuePage() {
   const location = useLocation();
   const repo = location.state?.repo;
 
+  const [loadingButtons, setLoadingButtons] = useState({}); // ✅ per-button loading
+
   const navigate = useNavigate();
 
 
@@ -33,8 +35,10 @@ export default function CreateIssuePage() {
 
 
   const handleCreateIssue = async () => {
-
+const buttonKey = "createIssue"; 
     try {
+       setLoadingButtons(prev => ({ ...prev, [buttonKey]: true }));
+      
       if (!repo?._id) {
         toast.error("Repository data missing");
         return;
@@ -72,6 +76,8 @@ export default function CreateIssuePage() {
         "Error creating issue";
 
       toast.error(message)
+    }  finally {
+      setLoadingButtons(prev => ({ ...prev, [buttonKey]: false }));
     }
 
   };
@@ -164,8 +170,12 @@ const handleClose = () => {
 
           <div className="actions">
             <button className="cancel" onClick={handleClose}>Cancel</button>
-            <button className="create" onClick={handleCreateIssue}>
-              Create
+             <button
+              className="create"
+              onClick={handleCreateIssue}
+              disabled={loadingButtons["createIssue"]}
+            >
+              {loadingButtons["createIssue"] ? "Creating..." : "Create"}
             </button>
           </div>
         </div>
