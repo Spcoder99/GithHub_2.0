@@ -232,7 +232,7 @@ const StarRepo = () => {
   };
 
 
-  if (!user) return <div>Loading...</div>;
+  // if (!user) return <div>Loading...</div>;
 
   return (
     <>
