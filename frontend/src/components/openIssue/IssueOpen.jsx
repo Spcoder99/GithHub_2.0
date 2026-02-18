@@ -195,7 +195,7 @@ const IssueOpen = () => {
         <div className="top-tabs-QUIOP">
           <span>Code</span>
           <span className="active-QUIOP">
-            Issues <span className="count-QUIOP">1</span>
+            Issues {/*<span className="count-QUIOP">1</span>*/}
           </span>
           <span>Pull requests</span>
           <span className="LAUDA-LEHSUN">Agents</span>
