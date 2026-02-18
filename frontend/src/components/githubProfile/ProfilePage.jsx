@@ -448,7 +448,7 @@ const ProfilePage = () => {
             {myId !== profileId ? (
               <>
                 {isFollowing ? (
-                  <button className="buttonOP" onClick={handleUnfollow}  disabled={loadingButtons.unfollow}>
+                  <button className="buttonOP" onClick={handleUnfollow} >// disabled={loadingButtons.unfollow}
                      {loadingButtons.unfollow ? "Loading..." : "Unfollow"}
                   </button>
                 ) : (
