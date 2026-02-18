@@ -223,7 +223,6 @@ const EditIssue = () => {
     navigate(-1);
   };
 
-  // if (!issue) return <div>Not found</div>;
   
   const isMine = issue?.author?._id?.toString() === userId;
 
@@ -316,16 +315,16 @@ const EditIssue = () => {
                             setEditText(c?.text);
                           }}
                           style={{ marginRight: "5px" }}
-                          disabled={loadingButtons[`updateComment-${c._id}`]}
+                          disabled={loadingButtons[`updateComment-${c?._id}`]}
                         >
-                          {loadingButtons[`updateComment-${c._id}`] ? "Saving..." : "Edit"}
+                          {loadingButtons[`updateComment-${c?._id}`] ? "Saving..." : "Edit"}
                         </button>
                         <button
                           className="btn-red-IPHONE"
                           onClick={() => handleDeleteComment(c?._id)}
-                          disabled={loadingButtons[`deleteComment-${c._id}`]}
+                          disabled={loadingButtons[`deleteComment-${c?._id}`]}
                         >
-                          {loadingButtons[`deleteComment-${c._id}`] ? "Deleting..." : "Delete"}
+                          {loadingButtons[`deleteComment-${c?._id}`] ? "Deleting..." : "Delete"}
                         </button>
                       </div>
                     )}
@@ -346,9 +345,9 @@ const EditIssue = () => {
                          <button
                           className="btn-secondary-IPHONE"
                           onClick={() => handleUpdateComment(c?._id)}
-                          disabled={loadingButtons[`updateComment-${c._id}`]}
+                          disabled={loadingButtons[`updateComment-${c?._id}`]}
                         >
-                          {loadingButtons[`updateComment-${c._id}`] ? "Saving..." : "Save"}
+                          {loadingButtons[`updateComment-${c?._id}`] ? "Saving..." : "Save"}
                         </button>
                         <button
                           className="btn-red-IPHONE"
@@ -399,7 +398,7 @@ const EditIssue = () => {
               title="Assignees"
               value={issue?.assignees || "No one assigned"}
             />
-            <SidebarItem title="Labels" value={issue.labels || "No labels"} />
+            <SidebarItem title="Labels" value={issue?.labels || "No labels"} />
             <SidebarItem
               title="Projects"
               value={issue?.projects || "No projects"}
