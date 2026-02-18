@@ -227,6 +227,12 @@ const EditIssue = () => {
   
   // const isMine = issue?.author?._id?.toString() === userId;
 
+  const isMine =
+  issue?.author?._id && userId
+    ? issue.author._id.toString() === userId.toString()
+    : false;
+
+
   return (
     <>
       {loading && <TerminalLoader />}
