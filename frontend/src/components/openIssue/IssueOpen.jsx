@@ -66,8 +66,8 @@ const IssueOpen = () => {
         toast.error(err?.response?.data?.error || "Failed to fetch issue");
         console.error("Error fetching issue:", err);
       } finally {
-        setLoading(false);
-        // setTimeout(() => setLoading(false), 600);
+        // setLoading(false);
+        setTimeout(() => setLoading(false), 500);
       }
     };
 
@@ -85,7 +85,8 @@ const IssueOpen = () => {
         toast.error(err?.response?.data?.error || "Failed to fetch user");
         console.error(err);
       } finally {
-        setLoading(false);
+        // setLoading(false);
+          setTimeout(() => setLoading(false), 500)
       }
     };
     fetchUser();
