@@ -235,7 +235,7 @@ const EditIssue = () => {
         <div className="top-tabs-IPHONE">
           <span>Code</span>
           <span className="active-IPHONE">
-            Issues <span className="count-IPHONE">1</span>
+            Issues {/*<span className="count-IPHONE">1</span> */}
           </span>
           <span className="MADARCHOD">Pull requests</span>
           <span className="MADARCHOD">Agents</span>
