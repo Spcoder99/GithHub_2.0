@@ -190,7 +190,15 @@ const ProfilePage = () => {
       const data = await res.json();
 
       toast.success(data?.message || "Followed user successfully");
-      fetchProfile();
+      // fetchProfile();
+      // ✅ Update user state locally instead of refetching
+    setUser((prev) => ({
+      ...prev,
+      user: {
+        ...prev.user,
+        followers: [...prev.user.followers, myId],
+      },
+    }));
     } catch (err) {
       toast.error( err?.response?.data?.error||"Error");
     } finally {
@@ -310,7 +318,15 @@ const ProfilePage = () => {
 
       const data = await res.json();
       toast.success(data?.message || "Unfollowed user successfully");
-      fetchProfile();
+      // fetchProfile();
+      // ✅ Update state locally
+    setUser((prev) => ({
+      ...prev,
+      user: {
+        ...prev.user,
+        followers: prev.user.followers.filter(id => id !== myId),
+      },
+    }));
     } catch (err) {
       toast.error( data?.message || "Error while unfollowing");
     } finally {
