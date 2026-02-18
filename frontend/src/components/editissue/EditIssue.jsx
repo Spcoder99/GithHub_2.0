@@ -69,7 +69,7 @@ const EditIssue = () => {
        setLoadingButtons(prev => ({ ...prev, [key]: true }));
       const res = await axios.put(
         `${import.meta.env.VITE_API_URL}/issue/update/${issueId}`,
-        { title, description, status: issue.status },
+        { title, description, status: issue?.status },
         { headers: { userid: userId } }
       );
 
@@ -225,13 +225,9 @@ const EditIssue = () => {
 
   // if (!issue) return <div>Not found</div>;
   
-  // const isMine = issue?.author?._id?.toString() === userId;
+  const isMine = issue?.author?._id?.toString() === userId;
 
-  const isMine =
-  issue?.author?._id && userId
-    ? issue.author._id.toString() === userId.toString()
-    : false;
-
+ 
 
   return (
     <>
@@ -283,7 +279,7 @@ const EditIssue = () => {
             {/* Issue description */}
             <div className="comment-card-IPHONE">
               <div className="comment-header-IPHONE">
-                <strong>{issue.authorName || "Unknown"}</strong>
+                <strong>{issue?.authorName || "Unknown"}</strong>
                 <span className="light-text-IPHONE">
                   opened on {new Date(issue?.createdAt).toLocaleDateString()}
                 </span>
