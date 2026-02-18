@@ -17,6 +17,7 @@ const EditProfile = () => {
 
   const [show, setShow] = useState(false);
   const [loading, setLoading] = useState(false);
+    const [buttonLoading, setButtonLoading] = useState(false); // ✅ button loading
 
   const navigate = useNavigate();
   // ✅ FETCH OLD EMAIL
@@ -59,7 +60,7 @@ const EditProfile = () => {
   // ✅ SUBMIT
   const handleSubmit = async () => {
     try {
-      // setLoading(true);
+           setButtonLoading(true); // ✅ START BUTTON LOADING
 
       const bodyData = {};
 
@@ -103,8 +104,7 @@ const EditProfile = () => {
     } catch (err) {
       toast.error("❌" + err?.message || "Failed to update profile");
     } finally {
-      // setLoading(false);
-      setTimeout(() => setLoading(false), 500);
+      setButtonLoading(false); // ✅ STOP BUTTON LOADING
     }
   };
 
@@ -151,14 +151,13 @@ const EditProfile = () => {
             </span>
           </div>
         </div>
-
-        <button
+         <button
           className="save-btnBHSDK"
           onClick={handleSubmit}
-          disabled={loading}
+          disabled={buttonLoading}
         >
           <Save size={16} />
-          {loading ? "Updating..." : "Save changes"}
+          {buttonLoading ? "Updating..." : "Save changes"}
         </button>
       </div>
       {/* <GithubFooter /> */}
