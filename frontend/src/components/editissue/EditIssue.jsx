@@ -32,11 +32,15 @@ const EditIssue = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
+        setLoading(true)
         const res = await axios.get(`${import.meta.env.VITE_API_URL}/userProfile/${userId}`);
         setUser(res?.data?.user);
       } catch (err) {
         console.error(err);
         toast.error(err?.response?.data?.error || "Failed to fetch user");
+      }  finally {
+      // setLoading(false);
+      setTimeout(() => setLoading(false), 500);
       }
     };
     fetchUser();
@@ -55,7 +59,7 @@ const EditIssue = () => {
       toast.error(err?.response?.data?.error || "Failed to fetch issue");
     } finally {
       // setLoading(false);
-      setTimeout(() => setLoading(false), 600);
+      setTimeout(() => setLoading(false), 500);
     }
   };
 
