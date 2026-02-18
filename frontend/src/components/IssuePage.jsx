@@ -155,7 +155,7 @@ const IssuesPage = () => {
             {/* List */}
             {!loading &&
               !error &&
-              issues.map((issue) => (
+              issues?.map((issue) => (
                 <div key={issue?._id} className="issue-rowMG">
                   <div className="issue-left">
                     <CheckCircle2 size={18} className="open-iconMG" />
