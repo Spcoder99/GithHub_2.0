@@ -157,8 +157,8 @@ const RepoIssue = () => {
               </div>
             ))} */}
 
-            {repoIssues
-              .filter(issue => issue.status === "open") // केवल open issues
+            {repoIssues?
+              .filter(issue => issue?.status === "open") // केवल open issues
               .map((issue) => (
                 <div key={issue?._id} className="issue-rowMGGAND">
                   <div className="issue-leftGAND">
@@ -181,7 +181,8 @@ const RepoIssue = () => {
 
                   <div className="issue-commentsMGGAND">
                     <MessageSquare size={16} />
-                    <span>0</span>
+                    {/* <span>0</span> */}
+                     <span>{issue?.comments?.length || 0}</span>
                   </div>
                 </div>
               ))}
