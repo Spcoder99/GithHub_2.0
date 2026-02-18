@@ -99,6 +99,16 @@
   /* margin-left: 90px; */
 }
 
+.buttonOP:disabled {
+  background: #F0F0F0;
+  border: 1px solid rgba(0, 0, 0, 0.301);
+   height: 40px;
+  width: 300px;
+  text-align: center;
+   border-radius: 10px;
+  cursor: not-allowed;
+}
+
 .ddiiv {
   width: 250px;
   display: flex;
