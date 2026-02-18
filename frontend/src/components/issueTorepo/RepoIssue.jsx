@@ -157,9 +157,7 @@ const RepoIssue = () => {
               </div>
             ))} */}
 
-            {repoIssues?
-              .filter(issue => issue?.status === "open") // केवल open issues
-              .map((issue) => (
+            {repoIssues?.filter(issue => issue?.status === "open")?.map((issue) => (
                 <div key={issue?._id} className="issue-rowMGGAND">
                   <div className="issue-leftGAND">
                     <CheckCircle2 size={18} className="open-iconMGGAND" />
