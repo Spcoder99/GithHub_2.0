@@ -397,20 +397,20 @@ const EditIssue = () => {
           <div className="right-section-IPHONE">
             <SidebarItem
               title="Assignees"
-              value={issue.assignees || "No one assigned"}
+              value={issue?.assignees || "No one assigned"}
             />
             <SidebarItem title="Labels" value={issue.labels || "No labels"} />
             <SidebarItem
               title="Projects"
-              value={issue.projects || "No projects"}
+              value={issue?.projects || "No projects"}
             />
             <SidebarItem
               title="Milestone"
-              value={issue.milestone || "No milestone"}
+              value={issue?.milestone || "No milestone"}
             />
             <SidebarItem
               title="Relationships"
-              value={issue.relationships || "None yet"}
+              value={issue?.relationships || "None yet"}
             />
           </div>
         </div>
