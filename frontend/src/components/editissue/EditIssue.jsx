@@ -39,7 +39,7 @@ const EditIssue = () => {
         console.error(err);
         toast.error(err?.response?.data?.error || "Failed to fetch user");
       }  finally {
-      // setLoading(false);
+      
       setTimeout(() => setLoading(false), 500);
       }
     };
@@ -58,7 +58,7 @@ const EditIssue = () => {
       console.log(err);
       toast.error(err?.response?.data?.error || "Failed to fetch issue");
     } finally {
-      // setLoading(false);
+      
       setTimeout(() => setLoading(false), 500);
     }
   };
@@ -225,7 +225,7 @@ const EditIssue = () => {
 
   // if (!issue) return <div>Not found</div>;
   
-  const isMine = issue?.author?._id?.toString() === userId;
+  // const isMine = issue?.author?._id?.toString() === userId;
 
   return (
     <>
