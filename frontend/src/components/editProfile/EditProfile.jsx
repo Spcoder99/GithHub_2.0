@@ -104,7 +104,7 @@ const EditProfile = () => {
       toast.error("❌" + err?.message || "Failed to update profile");
     } finally {
       // setLoading(false);
-      // setTimeout(() => setLoading(false), 600);
+      setTimeout(() => setLoading(false), 500);
     }
   };
 
