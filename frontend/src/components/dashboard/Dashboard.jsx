@@ -115,7 +115,7 @@ const Dashboard = () => {
 
     const fetchSuggestedRepositories = async () => {
       try {
-        // setLoading(true);
+        setLoading(true);
         const response = await fetch(`${import.meta.env.VITE_API_URL}/repo/all`);
         const data = await response.json();
         setSuggestedRepositories(Array.isArray(data?.repositories) ? data?.repositories : []);
@@ -123,7 +123,7 @@ const Dashboard = () => {
         console.error("Error While fetching repositories:", error);
         toast.error(error?.message);
       } finally {
-        setTimeout(() => setLoading(false), 400);
+        setTimeout(() => setLoading(false), 500);
       }
     };
     fetchRepositories();
@@ -141,17 +141,7 @@ const Dashboard = () => {
     }
   }, [searchQuery, repositories]);
 
-  // useEffect(() => {
-  //   if (searchQueryS === "") {
-  //     setSearchResultsS(suggestedRepositories);
-  //   } else {
-  //     const filteredRepositories = suggestedRepositories.filter((repo) =>
-  //       repo.name.toLowerCase().includes(searchQueryS.toLowerCase()),
-  //     );
-  //     setSearchResultsS(filteredRepositories);
-  //   }
-  // }, [searchQueryS, suggestedRepositories]);
-
+ 
   useEffect(() => {
     const publicRepos = suggestedRepositories?.filter(
       (repo) => repo?.visibility === true,
@@ -217,42 +207,6 @@ const Dashboard = () => {
     }
   };
 
-  //   try {
-
-
-  //     const res = await fetch(`http://localhost:8000/repo/toggle/${repoId}`, {
-  //       method: "PATCH",
-  //     });
-
-  //     const data = await res.json();
-
-  //     if (!res.ok) {
-  //       return toast.error(data.message || "Failed to toggle visibility");
-  //     }
-
-  //     toast.success(data.message);
-
-  //     // UI state update
-  //     setRepositories((prev) =>
-  //       prev.map((repo) =>
-  //         repo._id === repoId
-  //           ? { ...repo, visibility: data.repository.visibility }
-  //           : repo
-  //       )
-  //     );
-
-  //     setSearchResults((prev) =>
-  //       prev.map((repo) =>
-  //         repo._id === repoId
-  //           ? { ...repo, visibility: data.repository.visibility }
-  //           : repo
-  //       )
-  //     );
-  //   } catch (error) {
-  //     console.error(error);
-  //     toast.error("Toggle failed");
-  //   }
-  // };
 
   const handleToggleVisibility = async (repoId) => {
     try {
