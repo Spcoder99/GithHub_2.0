@@ -223,7 +223,7 @@ const EditIssue = () => {
     navigate(-1);
   };
 
-  if (!issue) return <div>Not found</div>;
+  // if (!issue) return <div>Not found</div>;
   
   const isMine = issue?.author?._id?.toString() === userId;
 
