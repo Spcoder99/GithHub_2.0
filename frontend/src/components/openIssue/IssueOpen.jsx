@@ -228,7 +228,7 @@ const IssueOpen = () => {
                 </Link>
                  <button
                   onClick={handleDeleteIssue}
-                  disabled={loadingButtons["deleteIssue"]}
+                  {/* disabled={loadingButtons["deleteIssue"]} */}
                   className="btn-red-QUIOP"
                   style={{ marginLeft: "10px" }}
                 >
