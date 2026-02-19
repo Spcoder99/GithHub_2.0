@@ -32,9 +32,29 @@ async function signUp(req, res) {
 
         const emailId = await usersCollection.findOne({ email });
 
-        if (user || emailId) {
-            return res.status(400).json({ message: "User already exists. Please Use another username || email" });
-        }
+        // if (user || emailId) {
+        //     return res.status(400).json({ message: "User already exists. Please Use another username || email" });
+        // }
+
+        // 🔒 Separate validation messages (No Logic Changed)
+if (user && emailId) {
+    return res.status(400).json({
+        message: "Username and Email already registered"
+    });
+}
+
+if (user) {
+    return res.status(400).json({
+        message: "Username already exists"
+    });
+}
+
+if (emailId) {
+    return res.status(400).json({
+        message: "Email already registered"
+    });
+}
+
 
         const salt = await bcrypt.genSalt(14);
         const hashedPassword = await bcrypt.hash(password, salt);
