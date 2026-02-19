@@ -24,30 +24,35 @@ const Signup = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
 
-    // ✅ Trim values
   const trimmedUsername = username.trim();
   const trimmedEmail = email.trim();
   const trimmedPassword = password.trim();
 
-  // ✅ Username validation (only letters, numbers, underscore, 3-20 chars)
+  // ✅ 1. Required fields check FIRST
+  if (!trimmedUsername || !trimmedEmail || !trimmedPassword) {
+    toast.error("All fields are required");
+    return;
+  }
+
+  // ✅ 2. Username validation
   const usernameRegex = /^[a-zA-Z0-9_]{3,20}$/;
-
-  // ✅ Proper email validation
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  // ✅ Password validation (min 6 chars)
-  if (trimmedPassword.length < 8) {
-    toast.error("Password must be at least 8 characters");
-    return;
-  }
-
   if (!usernameRegex.test(trimmedUsername)) {
-    toast.error("Username must be 3-20 characters and contain only letters, numbers, or underscore");
+    toast.error(
+      "Username must be 3-20 characters and contain only letters, numbers, or underscore"
+    );
     return;
   }
 
+  // ✅ 3. Email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(trimmedEmail)) {
     toast.error("Please enter a valid email address");
+    return;
+  }
+
+  // ✅ 4. Password validation
+  if (trimmedPassword.length < 8) {
+    toast.error("Password must be at least 8 characters");
     return;
   }
     
