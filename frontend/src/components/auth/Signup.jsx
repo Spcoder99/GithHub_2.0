@@ -36,7 +36,7 @@ const Signup = () => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   // ✅ Password validation (min 6 chars)
-  if (trimmedPassword.length < 6) {
+  if (trimmedPassword.length < 8) {
     toast.error("Password must be at least 6 characters");
     return;
   }
