@@ -25,6 +25,18 @@ const createRepository = async (req, res) => {
       return res.status(400).json({ error: "Invalid owner id" });
     }
 
+    // 🔒 NEW LOGIC ADDED HERE
+const existingRepo = await Repository.findOne({
+  owner,
+  name: name.trim()
+});
+
+if (existingRepo) {
+  return res.status(400).json({
+    error: "You already have a repository with this name"
+  });
+}
+
     // ✅ create repo
     const repo = await Repository.create({
       owner,
