@@ -21,6 +21,18 @@ const createIssue = async (req, res) => {
     const repository = await Repository.findById(repoID);
     if (!repository) return res.status(404).json({ error: "Repository not found" });
 
+    // 🔒 NEW VALIDATION ADDED
+const existingIssue = await Issue.findOne({
+  title: title.trim(),
+  author: author
+});
+
+if (existingIssue) {
+  return res.status(400).json({
+    error: "You have already created an issue with this title"
+  });
+}
+    
     const issue = new Issue({
       title,
       description,
