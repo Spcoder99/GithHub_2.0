@@ -24,10 +24,33 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    if (!email?.trim() || !password?.trim()) {
-      toast.error("Email and password required");
-      return;
-    }
+    // if (!email?.trim() || !password?.trim()) {
+    //   toast.error("Email and password required");
+    //   return;
+    // }
+
+    const trimmedEmail = email.trim();
+  const trimmedPassword = password.trim();
+
+  // ✅ Email validation regex
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!trimmedEmail || !trimmedPassword) {
+    toast.error("Email and password required");
+    return;
+  }
+
+  // ❌ If email not proper format
+  if (!emailRegex.test(trimmedEmail)) {
+    toast.error("Please enter a valid email address");
+    return;
+  }
+
+  // ❌ If password too short
+  if (trimmedPassword.length < 6) {
+    toast.error("Password must be at least 6 characters");
+    return;
+  }
 
 
     try {
