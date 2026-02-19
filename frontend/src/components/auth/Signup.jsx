@@ -23,6 +23,34 @@ const Signup = () => {
 
   const handleSignup = async (e) => {
     e.preventDefault();
+
+    // ✅ Trim values
+  const trimmedUsername = username.trim();
+  const trimmedEmail = email.trim();
+  const trimmedPassword = password.trim();
+
+  // ✅ Username validation (only letters, numbers, underscore, 3-20 chars)
+  const usernameRegex = /^[a-zA-Z0-9_]{3,20}$/;
+
+  // ✅ Proper email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  // ✅ Password validation (min 6 chars)
+  if (trimmedPassword.length < 6) {
+    toast.error("Password must be at least 6 characters");
+    return;
+  }
+
+  if (!usernameRegex.test(trimmedUsername)) {
+    toast.error("Username must be 3-20 characters and contain only letters, numbers, or underscore");
+    return;
+  }
+
+  if (!emailRegex.test(trimmedEmail)) {
+    toast.error("Please enter a valid email address");
+    return;
+  }
+    
     try {
       setLoading(true);
       const res = await axios.post(`${import.meta.env.VITE_API_URL}/signUp`, {
