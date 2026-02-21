@@ -5,8 +5,8 @@ import { AuthProvider } from "./context/authContext.jsx";
 import "./index.css";
 import ProjectRoutes from "./Routes.jsx";
 
-// 👉 ADD THIS (Right-click disable)
-document.addEventListener("contextmenu", (e) => e.preventDefault());
+// // 👉 ADD THIS (Right-click disable)
+// document.addEventListener("contextmenu", (e) => e.preventDefault());
 
 // document.addEventListener("keydown", (e) => {
 //   if (e.key === "F12") e.preventDefault();
