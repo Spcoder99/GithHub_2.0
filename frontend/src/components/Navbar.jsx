@@ -65,7 +65,7 @@ const Navbar = () => {
     };
 
     if (userId) fetchUser();
-  }, [userId]);
+  }, [userId, location]);
 
   useEffect(() => {
     setOpen(false);
